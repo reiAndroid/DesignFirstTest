@@ -5,11 +5,19 @@
     android:id="@+id/account_navigation"
     app:startDestination="@+id/account_fragment1">
 
-    <fragment
+    <!--<fragment
         android:id="@+id/account_fragment1"
         android:name="com.example.design.Fragment.AccFragment"
         android:label="@string/account_status"
-        tools:layout="@layout/fragment_acc"/>
+        tools:layout="@layout/fragment_acc">
+
+        <action
+            android:id="@+id/action_account_fragment1_to_personal_information_const2"
+            app:destination="@id/personal_information_const" />
+        <action
+            android:id="@+id/action_account_fragment1_to_acc_status_frag2"
+            app:destination="@id/acc_status_frag" />
+    </fragment>
 
     <fragment
         android:id="@+id/acc_status_frag"
@@ -28,5 +36,5 @@
         android:name="com.example.design.Fragment.AccountNotificationFragment"
         android:label="@string/notifications"
         tools:layout="@layout/acc_frag_notification"/>
-
+-->
 </navigation>
