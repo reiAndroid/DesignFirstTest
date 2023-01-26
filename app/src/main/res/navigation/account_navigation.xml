@@ -9,8 +9,7 @@
         android:id="@+id/account_fragment1"
         android:name="com.example.design.Fragment.AccFragment"
         android:label="@string/account_status"
-        tools:layout="@layout/fragment_acc">
-    </fragment>
+        tools:layout="@layout/fragment_acc"/>
 
     <fragment
         android:id="@+id/acc_status_frag"

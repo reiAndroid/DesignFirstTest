@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.TestPersonalFormation"
-    android:background="@color/black">
+    tools:context=".Fragment.TestPersonalFormation">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#470039">
+        android:background="#403E3E">
 
         <TextView
             android:id="@+id/name_personal1"

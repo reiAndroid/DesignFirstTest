@@ -2,6 +2,7 @@ package com.example.design.Fragment;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -43,15 +44,15 @@ public class AccFragment extends Fragment {
 
         openFirstFragment.setOnClickListener(v -> {
             FragmentTransaction fragmentTransaction = requireActivity().getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.account, new TestPersonalFormation());
-            fragmentTransaction.addToBackStack(AccFragment.class.getName());
+            fragmentTransaction.replace(R.id.container, new TestPersonalFormation());
+            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
 
-          /*  appBarTitle[0] = "Personal Information";
+            appBarTitle[0] = "Personal Information";
             Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar()).setTitle(appBarTitle[0]);
             Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar()).setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
             openFirstFragment.setVisibility(View.INVISIBLE);
-            secondFragment.setVisibility(View.INVISIBLE);*/
+            secondFragment.setVisibility(View.INVISIBLE);
 
         });
 
@@ -65,14 +66,16 @@ public class AccFragment extends Fragment {
                 fragTransaction.addToBackStack(null);
                 fragTransaction.commit();
 
+                 */
+
                 appBarTitle[0] = "Status";
                 Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar()).setTitle(appBarTitle[0]);
                 Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar()).setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
                 openFirstFragment.setVisibility(View.INVISIBLE);
-                secondFragment.setVisibility(View.INVISIBLE);*/
+                secondFragment.setVisibility(View.INVISIBLE);
 
-                addFragments("first");
-                replaceFragments("second");
+                addFragments("test");
+                replaceFragments("test");
             }
         });
 
@@ -163,7 +166,7 @@ public class AccFragment extends Fragment {
 
         TestAccountStatus acStatus = new TestAccountStatus();
 
-        ftt.add(R.id.container, acStatus, "first");
+        ftt.add(R.id.container, acStatus, "test");
         ftt.commit();
     }
 
@@ -173,7 +176,7 @@ public class AccFragment extends Fragment {
 
         TestAccountStatus acStatus = new TestAccountStatus();
 
-        ft.replace(R.id.container, acStatus, "second");
+        ft.replace(R.id.container, acStatus, "test");
         ft.commit();
     }
 
