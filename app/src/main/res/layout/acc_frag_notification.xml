@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#403E3E"
+    android:id="@+id/notification_layout">
+
+
+    <LinearLayout
+        android:id="@+id/pause_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/text_notification_pause"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/convergence"
+            android:text="Pause All"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <Switch
+            android:id="@+id/switch_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UseSwitchCompatOrMaterialXml"
+            tools:layout_editor_absoluteX="309dp"
+            tools:layout_editor_absoluteY="61dp" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/user_information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Inform the user"
+        android:textColor="#979393"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pause_layout" />
+
+
+
+    <LinearLayout
+        android:id="@+id/other_options_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_information">
+
+        <TextView
+            android:id="@+id/comments_reply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/encode_sans_light"
+            android:text="Comments and Reply"
+            android:textColor="#FFFFFF"
+            android:textSize="21sp" />
+
+
+        <TextView
+            android:id="@+id/new_movies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/encode_sans_light"
+            android:text="New Movies"
+            android:textColor="#FFFFFF"
+            android:textSize="21sp" />
+
+
+        <TextView
+            android:id="@+id/seasons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/encode_sans_light"
+            android:text="Seasons"
+            android:textColor="#FFFFFF"
+            android:textSize="21sp" />
+
+
+        <TextView
+            android:id="@+id/calendar_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/encode_sans_light"
+            android:text="Calendar"
+            android:textColor="#FFFFFF"
+            android:textSize="21sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

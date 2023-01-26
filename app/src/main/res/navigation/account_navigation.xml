@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/account_navigation"
+    app:startDestination="@+id/account_fragment1">
+
+    <fragment
+        android:id="@+id/account_fragment1"
+        android:name="com.example.design.Fragment.AccFragment"
+        android:label="@string/account_status"
+        tools:layout="@layout/fragment_acc">
+    </fragment>
+
+    <fragment
+        android:id="@+id/acc_status_frag"
+        android:name="com.example.design.Fragment.TestAccountStatus"
+        android:label="acc_status"
+        tools:layout="@layout/fragment_test_account_status"/>
+
+    <fragment
+        android:id="@+id/personal_information_const"
+        android:name="com.example.design.Fragment.TestPersonalFormation"
+        android:label="acc_status"
+        tools:layout="@layout/fragment_test_personal_formation"/>
+
+    <fragment
+        android:id="@+id/notification_layout"
+        android:name="com.example.design.Fragment.AccountNotificationFragment"
+        android:label="@string/notifications"
+        tools:layout="@layout/acc_frag_notification"/>
+
+</navigation>

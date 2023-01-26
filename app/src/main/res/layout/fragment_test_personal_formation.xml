@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.TestPersonalFormation"
+    android:background="@color/black">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#470039">
+
+        <TextView
+            android:id="@+id/name_personal1"
+            style="@style/personal_information_main_text"
+            android:text="@string/user_name"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/userName_field1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_personal1">
+
+            <EditText
+                android:id="@+id/changed_userName1"
+                style="@style/personal_inf_text"
+                android:inputType="text"
+                android:text="@string/user_name_text" />
+
+            <Button
+                android:id="@+id/change_name1"
+                style="@style/button_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#051A7C"
+                android:text="@string/change_button" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/last_name_personal1"
+            style="@style/personal_information_main_text"
+            android:text="@string/last_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userName_field1" />
+
+        <LinearLayout
+            android:id="@+id/userLastname_field1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/last_name_personal1">
+
+            <EditText
+                android:id="@+id/changed_userLastname1"
+                style="@style/personal_inf_text"
+                android:inputType="text"
+                android:text="@string/last_name" />
+
+            <Button
+                android:id="@+id/change_lastName1"
+                style="@style/button_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#051A7C"
+                android:text="@string/change_button" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/email_personal1"
+            style="@style/personal_information_main_text"
+            android:text="@string/first_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userLastname_field1" />
+
+        <LinearLayout
+            android:id="@+id/userEmail_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_personal1">
+
+            <EditText
+                android:id="@+id/changed_userEmail1"
+                style="@style/personal_inf_text"
+                android:inputType="textEmailAddress"
+                android:text="@string/first_email" />
+
+            <Button
+                android:id="@+id/change_email1"
+                style="@style/button_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#051A7C"
+                android:text="@string/change_button" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/password_personal1"
+            style="@style/personal_information_main_text"
+            android:text="@string/first_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userEmail_field" />
+
+        <LinearLayout
+            android:id="@+id/userPassword_field1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_personal1">
+
+            <EditText
+                android:id="@+id/changed_userPassword1"
+                style="@style/personal_inf_text"
+                android:inputType="textPassword"
+                android:text="@string/password" />
+
+            <Button
+                android:id="@+id/change_password1"
+                style="@style/button_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#051A7C"
+                android:text="@string/change_button" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
