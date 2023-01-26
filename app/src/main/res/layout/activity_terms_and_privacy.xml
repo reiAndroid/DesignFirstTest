@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.TermsAndPrivacy"
+    android:background="#1C8D80">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="#1C8D80"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            app:title="Terms and Privacy"
+            app:expandedTitleTextColor="#FFFFFF"
+            app:collapsedTitleTextColor="@color/white"
+            android:id="@+id/collapsing_toolbar"
+            android:background="@drawable/collapse_toolbar_background">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/collapse_toolbar_background"
+                android:scaleType="centerCrop"/>
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:background="@drawable/nested_layout"
+        android:padding="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="6dp">
+
+            <TextView
+                android:id="@+id/title_text"
+                style="@style/collapsing_text_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Privacy is LOCKED"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/condition_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/audiowide"
+                android:text="INTRODUCTION"
+                android:textSize="18sp"
+                android:textColor="#14635A"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_text" />
+
+            <TextView
+                android:id="@+id/text_introduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Here will be show the intr text"
+                android:textColor="@color/light_black"
+                android:layout_marginTop="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/condition_text" />
+
+            <TextView
+                android:id="@+id/legal_basis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LEGAL BASIS"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/audiowide"
+                android:textSize="18sp"
+                android:textColor="#14635A"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_introduction" />
+
+            <TextView
+                android:id="@+id/text_legal_basis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="Here will show the legal text"
+                android:textColor="@color/light_black"
+                app:layout_constraintTop_toBottomOf="@+id/legal_basis"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <TextView
+                android:id="@+id/marketing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Direct Marketing"
+                android:fontFamily="@font/audiowide"
+                android:textColor="#14635A"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_legal_basis" />
+
+            <TextView
+                android:id="@+id/text_marketing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Here will show the marketing text"
+                android:textColor="@color/light_black"
+                android:layout_marginTop="7dp"
+                app:layout_constraintTop_toBottomOf="@+id/marketing"
+                tools:layout_editor_absoluteX="8dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
