@@ -2,6 +2,8 @@ package com.example.design.Fragment;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -10,22 +12,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.design.MovieData.MovieDao;
-import com.example.design.MovieData.MovieDatabase;
-import com.example.design.MovieData.MovieModel;
+import com.example.design.MovieData.Movie;
+import com.example.design.MovieData.MovieModelClass;
 import com.example.design.R;
-import com.example.design.databinding.MovieTitleDatabseBinding;
 
 public class BottomFragmentMovie extends Fragment {
 
 
-    private EditText editText_setMovie, editText_setRate;
+    private EditText movieName, movieRate;
     private Button cancel_button, set_button;
-
-    private MovieDao movieDao;
-    private MovieModel movieModel;
-
-    private MovieDatabase movieDatabase;
+    private MovieModelClass movieModel;
+    private Movie movie;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,8 +32,11 @@ public class BottomFragmentMovie extends Fragment {
 
         set_button = view.findViewById(R.id.save_movie_button);
         cancel_button = view.findViewById(R.id.cancel_saving_movies);
-        editText_setMovie = view.findViewById(R.id.new_movie_edit);
-        editText_setRate = view.findViewById(R.id.rate_edit);
+        movieName = view.findViewById(R.id.new_movie_edit);
+        movieRate = view.findViewById(R.id.rate_edit);
+
+        movieModel = new ViewModelProvider((ViewModelStoreOwner) requireContext()).get(MovieModelClass.class);
+        movie = new Movie();
 
         set_button.setOnClickListener(view1 -> {
             insertMovie();
@@ -50,18 +50,12 @@ public class BottomFragmentMovie extends Fragment {
 
     private void insertMovie() {
 
-        movieDao = movieDatabase.movieDao();
-        movieDao.deleteAll();
+        String movie_name = movieName.getText().toString();
+        int movie_rate = Integer.parseInt(movieRate.getText().toString());
 
-        String movie_name = editText_setMovie.getText().toString();
-        int movie_rate = 9;
+        movie.setMovie_name(movie_name);
+        movie.setMovie_rate(movie_rate);
 
-        movieModel.setMovie_name(movie_name);
-        movieModel.setMovie_rate(movie_rate);
-        movieModel = new MovieModel(movie_name, movie_rate);
-
-        MovieDatabase.service.execute(() -> {
-            movieDao.insert(movieModel);
-        });
+        movieModel.insert(movie);
     }
 }

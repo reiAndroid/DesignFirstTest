@@ -12,9 +12,9 @@ public class MovieModelClass extends AndroidViewModel {
 
     private MovieRepository movieRepository;
 
-    public final LiveData<List<MovieModel>> movie_model_name;
+    public final LiveData<List<Movie>> movie_model_name;
 
-    public final LiveData<List<MovieModel>> movie_model_rate;
+    public final LiveData<List<Movie>> movie_model_rate;
 
     public MovieModelClass(@NonNull Application application) {
         super(application);
@@ -25,16 +25,16 @@ public class MovieModelClass extends AndroidViewModel {
         movie_model_rate = movieRepository.getExample_movie_rate();
     }
 
-    public LiveData<List<MovieModel>> getMovie_model_name() {
+    public LiveData<List<Movie>> getMovie_model_name() {
         return movie_model_name;
     }
 
 
-    public LiveData<List<MovieModel>> getMovie_model_rate() {
+    public LiveData<List<Movie>> getMovie_model_rate() {
         return movie_model_rate;
     }
 
-    public void insert(MovieModel model) {
+    public void insert(Movie model) {
         movieRepository.insert(model);
     }
 }

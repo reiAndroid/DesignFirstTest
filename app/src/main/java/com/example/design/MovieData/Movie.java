@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity (tableName = "movie_table")
-public class MovieModel {
+public class Movie {
 
     @PrimaryKey
     @NonNull
@@ -17,10 +17,12 @@ public class MovieModel {
     @ColumnInfo(name = "movie_rate")
     private int movie_rate;
 
-    public MovieModel (@NonNull String movie_name, int movie_rate) {
+    public Movie(@NonNull String movie_name, int movie_rate) {
         this.movie_name = movie_name;
         this.movie_rate = movie_rate;
     }
+
+    public Movie(){}
 
 
     public void setMovie_name(@NonNull String movie_name){

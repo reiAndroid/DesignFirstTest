@@ -1,32 +1,9 @@
 package com.example.design.Activities;
 
-import static com.example.design.MovieData.MovieDatabase.INSTANCE;
-import static com.example.design.MovieData.MovieDatabase.service;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import android.app.Dialog;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.design.Fragment.BottomFragmentMovie;
-import com.example.design.MovieData.MovieDao;
-import com.example.design.MovieData.MovieModel;
-import com.example.design.MovieData.MovieModelClass;
-import com.example.design.MovieHolder.MovieListAdapter;
 import com.example.design.R;
 
 public class MovieDatabaseExample extends AppCompatActivity {
@@ -115,16 +92,16 @@ public class MovieDatabaseExample extends AppCompatActivity {
                 movieDao.deleteAll();
 
 
-                MovieModel model = new MovieModel("Anna", 9);
+                Movie model = new Movie("Anna", 9);
                 movieDao.insert(model);
 
-                model = new MovieModel("Smile", 7);
+                model = new Movie("Smile", 7);
                 movieDao.insert(model);
 
-                model = new MovieModel("Avengers End-Game", 9);
+                model = new Movie("Avengers End-Game", 9);
                 movieDao.insert(model);
 
-                model = new MovieModel("Avengers Infinity-War", 9);
+                model = new Movie("Avengers Infinity-War", 9);
                 movieDao.insert(model);
 
             });

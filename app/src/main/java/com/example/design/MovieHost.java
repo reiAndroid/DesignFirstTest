@@ -3,15 +3,11 @@ package com.example.design;
 import static com.example.design.MovieData.MovieDatabase.INSTANCE;
 import static com.example.design.MovieData.MovieDatabase.service;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,13 +19,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.design.Fragment.BottomFragmentMovie;
+import com.example.design.MovieData.Movie;
 import com.example.design.MovieData.MovieDao;
-import com.example.design.MovieData.MovieModel;
 import com.example.design.MovieData.MovieModelClass;
 import com.example.design.MovieHolder.MovieListAdapter;
-
-import java.util.Objects;
 
 
 public class MovieHost extends Fragment {
@@ -68,19 +61,19 @@ public class MovieHost extends Fragment {
                 MovieDao movieDao = INSTANCE.movieDao();
                 movieDao.deleteAll();
 
-                MovieModel model = new MovieModel("Anna", 7);
+                Movie model = new Movie("Anna", 7);
                 movieDao.insert(model);
 
-                model = new MovieModel("Avengers EndGame", 9);
+                model = new Movie("Avengers EndGame", 9);
                 movieDao.insert(model);
 
-                model = new MovieModel("Smile", 8);
+                model = new Movie("Smile", 8);
                 movieDao.insert(model);
 
-                model = new MovieModel("Black Panther", 8);
+                model = new Movie("Black Panther", 8);
                 movieDao.insert(model);
 
-                model = new MovieModel("Black Adam", 6);
+                model = new Movie("Black Adam", 6);
                 movieDao.insert(model);
             });
         }

@@ -11,7 +11,7 @@ import androidx.room.RoomDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {MovieModel.class}, version = 1, exportSchema = false)
+@Database(entities = {Movie.class}, version = 1, exportSchema = false)
 public abstract class MovieDatabase extends RoomDatabase {
 
     public abstract MovieDao movieDao();

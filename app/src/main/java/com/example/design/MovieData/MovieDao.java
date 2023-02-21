@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -12,14 +13,14 @@ import java.util.List;
 public interface MovieDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert (MovieModel movies);
+    void insert (Movie movies);
 
     @Query("DELETE FROM movie_table")
     void deleteAll();
 
     @Query("SELECT * FROM movie_table")
-    LiveData<List<MovieModel>> movies();
+    LiveData<List<Movie>> movies();
 
     @Query("SELECT * FROM movie_table")
-    LiveData<List<MovieModel>> fromHighestRate();
+    LiveData<List<Movie>> fromHighestRate();
 }
