@@ -54,28 +54,22 @@ public class Populars_Adapter extends RecyclerView.Adapter<Populars_Adapter.View
                 .load(populars_movies.get(position).getMovie_image())
                 .into(holder.movie_image);
 
-        holder.fav_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        holder.fav_btn.setOnClickListener(view -> {
 
-                if (!fav[0]) {
-                    holder.fav_btn.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
-                    Toast.makeText(pContext, "Added to Favorites", Toast.LENGTH_SHORT).show();
-                    fav[0] = true;
-                } else {
-                    holder.fav_btn.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-                    Toast.makeText(pContext, "Removed from Favorites", Toast.LENGTH_SHORT).show();
-                    fav[0] = false;
-                }
+            if (!fav[0]) {
+                holder.fav_btn.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
+                Toast.makeText(pContext, "Added to Favorites", Toast.LENGTH_SHORT).show();
+                fav[0] = true;
+            } else {
+                holder.fav_btn.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+                Toast.makeText(pContext, "Removed from Favorites", Toast.LENGTH_SHORT).show();
+                fav[0] = false;
             }
         });
 
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(pContext, MainActivity2.class);
-                pContext.startActivity(intent);
-            }
+        holder.cardView.setOnClickListener(view -> {
+            Intent intent = new Intent(pContext, MainActivity2.class);
+            pContext.startActivity(intent);
         });
 
     }

@@ -1,10 +1,14 @@
 package com.example.design.MovieHolder;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
+import com.example.design.R;
 
 import com.example.design.MovieData.Movie;
 
@@ -22,8 +26,13 @@ public class MovieListAdapter extends ListAdapter<Movie, MovieViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
         Movie model = getItem(position);
+
         holder.setMovie_dB_name(model.getMovie_name());
         holder.setMovie_dB_rate(model.getMovie_rate());
+
+        holder.itemView.findViewById(R.id.movie_dB_name).setOnClickListener(view -> {
+            Navigation.findNavController(view).navigate(R.id.bottomFragmentMovie);
+        });
     }
 
     public static class MovieDiff extends DiffUtil.ItemCallback<Movie> {

@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:paddingStart="6dp"
     android:paddingEnd="6dp"
+    android:id="@+id/movieLayout"
     android:orientation="horizontal">
 
     <TextView
