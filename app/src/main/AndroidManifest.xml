@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Design"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.MovieDatabaseExample"
+            android:exported="false" />
+        <activity
+            android:name=".FavNext"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.ExampleOfDatabase"
+            android:exported="false" />
+        <activity
             android:name=".Activities.TermsAndPrivacy"
             android:exported="false">
             <meta-data

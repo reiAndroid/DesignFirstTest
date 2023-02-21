@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movie_navigation"
+    app:startDestination="@id/movieHost">
+
+    <fragment
+        android:id="@+id/movieHost"
+        android:name="com.example.design.MovieHost"
+        android:label="fragment_movie_host"
+        tools:layout="@layout/fragment_movie_host" >
+        <action
+            android:id="@+id/action_movieHost_to_bottomFragmentMovie"
+            app:destination="@id/bottomFragmentMovie"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bottomFragmentMovie"
+        android:name="com.example.design.Fragment.BottomFragmentMovie"
+        android:label="fragment_bottom_movie"
+        tools:layout="@layout/fragment_bottom_movie" >
+        <action
+            android:id="@+id/action_bottomFragmentMovie_to_movieHost"
+            app:destination="@id/movieHost"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
+</navigation>

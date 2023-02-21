@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     //Here we declare as global, elements inside our layout
     private EditText txtName, txtLastName, txtEmail, txtPassword, txtRepPassword;
     private TextView txtAcc, txtStarted, txt_user;
-    private Button btnLog;
+    private Button btnLog, button_open_data;
     private ConstraintLayout second_cons, parent_layout;
     private ImageView info_error, info_error_pass, info_error_rep_pass;
 
@@ -45,6 +45,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void init(){
 
+
+        button_open_data = findViewById(R.id.button_open_data);
+
+
+        button_open_data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent dataMovie = new Intent(MainActivity.this, MovieDatabaseExample.class);
+                startActivity(dataMovie);
+            }
+        });
         //Here we initialize the elements inside our layout
         txtName = findViewById (R.id.txtName);
         txtLastName = findViewById (R.id.txtLastName);
@@ -167,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         txt_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent terms = new Intent(MainActivity.this, TermsAndPrivacy.class);
+                Intent terms = new Intent(MainActivity.this, ExampleOfDatabase.class);
                 startActivity(terms);
             }
         });

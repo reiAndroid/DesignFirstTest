@@ -35,12 +35,7 @@ public class AccountTextAdapter extends RecyclerView.Adapter<AccountTextAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.text_information.setText(texts.get(position).getText());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
     }
 
 
