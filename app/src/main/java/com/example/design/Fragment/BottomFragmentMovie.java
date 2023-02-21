@@ -6,11 +6,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.Navigation;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.design.MovieData.Movie;
 import com.example.design.MovieData.MovieModelClass;
@@ -39,8 +41,14 @@ public class BottomFragmentMovie extends Fragment {
         movie = new Movie();
 
         set_button.setOnClickListener(view1 -> {
-            insertMovie();
-            Navigation.findNavController(view).navigate(R.id.movieHost);
+            if (TextUtils.isEmpty(movieName.getText()) || TextUtils.isEmpty(movieRate.getText())) {
+                Toast.makeText(getContext(), "Nothing to save", Toast.LENGTH_SHORT).show();
+                Navigation.findNavController(view).navigate(R.id.movieHost);
+            } else {
+                insertMovie();
+                Navigation.findNavController(view).navigate(R.id.movieHost);
+            }
+
         });
 
         cancel_button.setOnClickListener(view1 -> Navigation.findNavController(view).navigate(R.id.movieHost));

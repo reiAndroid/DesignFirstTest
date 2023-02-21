@@ -1,7 +1,5 @@
 package com.example.design.MovieHolder;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -30,6 +28,7 @@ public class MovieListAdapter extends ListAdapter<Movie, MovieViewHolder> {
         holder.setMovie_dB_name(model.getMovie_name());
         holder.setMovie_dB_rate(model.getMovie_rate());
 
+        //Open the fragment
         holder.itemView.findViewById(R.id.movie_dB_name).setOnClickListener(view -> {
             Navigation.findNavController(view).navigate(R.id.bottomFragmentMovie);
         });

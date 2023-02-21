@@ -15,13 +15,12 @@ import com.example.design.R;
 public class MovieViewHolder extends RecyclerView.ViewHolder {
 
     private TextView movie_dB_name, movie_dB_rate;
-    private LinearLayout movieLayout;
+
     public MovieViewHolder(@NonNull View itemView) {
         super(itemView);
 
         movie_dB_name = itemView.findViewById(R.id.movie_dB_name);
         movie_dB_rate = itemView.findViewById(R.id.movie_dB_rate);
-        movieLayout = itemView.findViewById(R.id.movieLayout);
     }
 
     public void setMovie_dB_name(String text_name) {
