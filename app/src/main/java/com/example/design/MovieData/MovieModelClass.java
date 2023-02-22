@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MovieModelClass extends AndroidViewModel {
 
-    private MovieRepository movieRepository;
+    private final MovieRepository movieRepository;
 
     public final LiveData<List<Movie>> movie_model_name;
 
@@ -36,5 +36,9 @@ public class MovieModelClass extends AndroidViewModel {
 
     public void insert(Movie model) {
         movieRepository.insert(model);
+    }
+
+    public void updateMovie(String name, int rate, int id) {
+        movieRepository.updateMovie(name, rate, id);
     }
 }

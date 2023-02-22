@@ -15,6 +15,9 @@ public interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert (Movie movies);
 
+    @Query("UPDATE movie_table SET movie_name = :name, movie_rate = :rate WHERE movie_id=:id")
+    void updateMovie(String name, int rate, int id);
+
     @Query("DELETE FROM movie_table")
     void deleteAll();
 

@@ -9,7 +9,9 @@ import androidx.room.PrimaryKey;
 public class Movie {
 
     @PrimaryKey
-    @NonNull
+
+    @ColumnInfo(name = "movie_id")
+    private int id;
 
     @ColumnInfo(name = "movie_name")
     private String movie_name;
@@ -17,13 +19,29 @@ public class Movie {
     @ColumnInfo(name = "movie_rate")
     private int movie_rate;
 
+    public Movie(int id, String movie_name, int movie_rate) {
+        this.id = id;
+        this.movie_name = movie_name;
+        this.movie_rate = movie_rate;
+    }
+
     public Movie(@NonNull String movie_name, int movie_rate) {
         this.movie_name = movie_name;
         this.movie_rate = movie_rate;
     }
 
-    public Movie(){}
+    //Null Constructor
+    public Movie() {
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void setMovie_name(@NonNull String movie_name){
         this.movie_name=movie_name;

@@ -13,7 +13,7 @@ public class MovieRepository {
     private LiveData<List<Movie>> example_movie_rate;
 
     MovieRepository (Application app) {
-        MovieDatabase mDb = MovieDatabase.getMovieDatabase(app);
+        MoviesDatabase mDb = MoviesDatabase.getMoviesDatabase(app);
         example_movie_dao = mDb.movieDao();
         example_movie_name = example_movie_dao.movies();
         example_movie_rate = example_movie_dao.fromHighestRate();
@@ -28,8 +28,12 @@ public class MovieRepository {
     }
 
     public void insert(Movie model) {
-        MovieDatabase.service.execute(() -> {
+        MoviesDatabase.service1.execute(() -> {
             example_movie_dao.insert(model);
         });
+    }
+
+    public void updateMovie(String name, int rate, int id) {
+        MoviesDatabase.service1.execute(() -> example_movie_dao.updateMovie(name, rate, id));
     }
 }

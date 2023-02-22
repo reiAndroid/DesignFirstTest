@@ -17,6 +17,9 @@
             app:exitAnim="@anim/slide_out_top"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_bottom" />
+        <action
+            android:id="@+id/action_movieHost_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
 
     <fragment
@@ -31,5 +34,14 @@
             app:exitAnim="@anim/slide_out_top"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.design.Fragment.UpdateFragment"
+        android:label="update_fragment"
+        tools:layout="@layout/update_fragment" >
+        <action
+            android:id="@+id/action_updateFragment_to_movieHost"
+            app:destination="@id/movieHost" />
     </fragment>
 </navigation>
