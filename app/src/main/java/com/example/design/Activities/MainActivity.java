@@ -45,9 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void init(){
 
-
         button_open_data = findViewById(R.id.button_open_data);
-
 
         button_open_data.setOnClickListener(new View.OnClickListener() {
             @Override
