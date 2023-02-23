@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movies_navigation"
+    app:startDestination="@id/movieDataExample">
+
+    <fragment
+        android:id="@+id/movieDataExample"
+        android:name="com.example.design.Fragment.MovieDataExample"
+        android:label="fragment_movie_data_example"
+        tools:layout="@layout/fragment_movie_data_example" >
+        <action
+            android:id="@+id/action_movieDataExample_to_insertFragment"
+            app:destination="@id/insertFragment" />
+        <action
+            android:id="@+id/action_movieDataExample_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/insertFragment"
+        android:name="com.example.design.Fragment.InsertFragment"
+        android:label="fragment_insert"
+        tools:layout="@layout/fragment_insert" >
+        <action
+            android:id="@+id/action_insertFragment_to_movieDataExample"
+            app:destination="@id/movieDataExample" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.design.Fragment.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_movieDataExample"
+            app:destination="@id/movieDataExample" />
+    </fragment>
+</navigation>

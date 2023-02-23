@@ -1,63 +1,52 @@
 package com.example.design.MovieData;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity (tableName = "movie_table")
+@Entity (tableName = "movies")
 public class Movie {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
 
-    @ColumnInfo(name = "movie_id")
-    private int id;
+    @ColumnInfo(name = "movieId")
+    public int id;
 
-    @ColumnInfo(name = "movie_name")
-    private String movie_name;
+    @ColumnInfo(name = "movieName")
+    public String movieName;
 
-    @ColumnInfo(name = "movie_rate")
-    private int movie_rate;
+    @ColumnInfo(name = "movieRate")
+    public int movieRate;
 
-    public Movie(int id, String movie_name, int movie_rate) {
+    public Movie (int id, String movieName, int movieRate) {
         this.id = id;
-        this.movie_name = movie_name;
-        this.movie_rate = movie_rate;
+        this.movieName = movieName;
+        this.movieRate = movieRate;
     }
 
-    public Movie(@NonNull String movie_name, int movie_rate) {
-        this.movie_name = movie_name;
-        this.movie_rate = movie_rate;
-    }
+    public Movie() {}
 
-    //Null Constructor
-    public Movie() {
-
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
     }
 
-    public void setMovie_name(@NonNull String movie_name){
-        this.movie_name=movie_name;
+    public String getMovieName() {
+        return movieName;
     }
 
-    public void setMovie_rate(int movie_rate) {
-        this.movie_rate=movie_rate;
+    public void setMovieRate(int movieRate) {
+        this.movieRate = movieRate;
     }
 
-
-    @NonNull
-    public String getMovie_name() {
-        return this.movie_name;
-    }
-
-    public int getMovie_rate() {
-        return this.movie_rate;
+    public int getMovieRate() {
+        return movieRate;
     }
 }

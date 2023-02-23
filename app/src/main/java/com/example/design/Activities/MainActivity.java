@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         button_open_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent dataMovie = new Intent(MainActivity.this, MovieDatabaseExample.class);
-                startActivity(dataMovie);
+               Intent intent = new Intent(MainActivity.this, MovieExample.class);
+               startActivity(intent);
             }
         });
         //Here we initialize the elements inside our layout

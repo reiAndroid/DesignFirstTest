@@ -3,16 +3,15 @@ package com.example.design.MovieHolder;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
-import com.example.design.R;
 
 import com.example.design.MovieData.Movie;
 
 public class MovieListAdapter extends ListAdapter<Movie, MovieViewHolder> {
-    public MovieListAdapter(@NonNull DiffUtil.ItemCallback<Movie> diffCallback) {
-        super(diffCallback);
+
+    public MovieListAdapter (@NonNull DiffUtil.ItemCallback<Movie> diffCallBackMovie) {
+        super(diffCallBackMovie);
     }
 
     @NonNull
@@ -23,13 +22,9 @@ public class MovieListAdapter extends ListAdapter<Movie, MovieViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
-        Movie model = getItem(position);
-
-        holder.setMovie_dB_name(model.getMovie_name());
-        holder.setMovie_dB_rate(model.getMovie_rate());
-
-        //Open the update fragment by clicking on an item
-        holder.itemView.findViewById(R.id.movie_dB_name).setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.updateFragment));
+        Movie currentMovie = getItem(position);
+        holder.bind(currentMovie.getMovieName());
+        holder.bind1(currentMovie.getMovieRate());
     }
 
     public static class MovieDiff extends DiffUtil.ItemCallback<Movie> {
@@ -41,7 +36,7 @@ public class MovieListAdapter extends ListAdapter<Movie, MovieViewHolder> {
 
         @Override
         public boolean areContentsTheSame(@NonNull Movie oldItem, @NonNull Movie newItem) {
-            return oldItem.getMovie_name().equals(newItem.getMovie_name());
+            return oldItem.getMovieName().equals(newItem.getMovieName());
         }
     }
 }
