@@ -28,11 +28,19 @@ public class MovieViewModel extends AndroidViewModel {
         moviesRepository.insertMovie(movie);
     }
 
+    public void updateMovies(Movie movie) {
+        moviesRepository.update(movie);
+    }
+
     public void update(String movieName, int movieRate, int id) {
         moviesRepository.updateMovie(movieName, movieRate, id);
     }
 
     public void delete(Movie movie) {
         moviesRepository.deleteMovie(movie);
+    }
+
+    public void deleteAll() {
+        moviesRepository.deleteAll();
     }
 }

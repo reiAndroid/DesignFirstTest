@@ -24,6 +24,10 @@ public class Movie {
         this.movieRate = movieRate;
     }
 
+    public Movie(String movieName, int movieRate) {
+        this.movieName = movieName;
+        this.movieRate = movieRate;
+    }
     public Movie() {}
 
     public void setId(int id) {

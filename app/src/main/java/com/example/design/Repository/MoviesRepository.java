@@ -25,20 +25,24 @@ public class MoviesRepository {
     }
 
     public void insertMovie(Movie movie) {
-        MovieDB.service.execute(() -> {
-            moviesDao.insertMovie(movie);
-        });
+        MovieDB.service.execute(() -> moviesDao.insertMovie(movie));
+    }
+
+    //new
+    public void update(Movie movie) {
+        MovieDB.service.execute(() -> moviesDao.update(movie));
     }
 
     public void updateMovie(String movieName, int movieRate, int id) {
-        MovieDB.service.execute(() -> {
-            moviesDao.updateMovie(movieName, movieRate, id);
-        });
+        MovieDB.service.execute(() -> moviesDao.updateMovie(movieName, movieRate, id));
     }
 
     public void deleteMovie(Movie movie) {
-        MovieDB.service.execute(() -> {
-            moviesDao.deleteMovie(movie);
-        });
+        MovieDB.service.execute(() -> moviesDao.deleteMovie(movie));
+    }
+
+    //new
+    public void deleteAll() {
+        MovieDB.service.execute(() -> moviesDao.deleteAll());
     }
 }

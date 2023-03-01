@@ -24,13 +24,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/movieRecyclerView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:padding="6dp"
-        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/layoutMainButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textHello"
-        tools:listitem="@layout/recyclerview_item"/>
+        tools:listitem="@layout/recyclerview_item" />
+
 
     <LinearLayout
         android:id="@+id/layoutMainButtons"
@@ -38,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:orientation="horizontal"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -48,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#05112C"
-            android:text="add new movie"
+            android:text="add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/movieRecyclerView"
             app:layout_constraintStart_toStartOf="@+id/movieRecyclerView" />
@@ -60,7 +62,7 @@
             android:layout_marginStart="3dp"
             android:layout_weight="1"
             android:backgroundTint="#05112C"
-            android:text="delete all"
+            android:text="delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/movieRecyclerView"
             app:layout_constraintStart_toStartOf="@+id/movieRecyclerView" />
