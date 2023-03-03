@@ -32,6 +32,11 @@ public class UpdateFragment extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_update, container, false);
 
+        movie = new Movie();
+        movie.id = SaveData.getInt("movieId");
+        movie.movieRate = SaveData.getInt("movieRate");
+        movie.movieName = SaveData.getString("movieName");
+
         //Initialize of User Elements
         updateMovieNameEdit = view.findViewById(R.id.updateMovieNameEdit);
         updateMovieRateEdit = view.findViewById(R.id.updateMovieRateEdit);
@@ -63,18 +68,12 @@ public class UpdateFragment extends Fragment {
     }
 
     public void updateMovie() {
-        //TODO: Update Item
         movieViewModel = new ViewModelProvider(this).get(MovieViewModel.class);
 
         String newName = updateMovieNameEdit.getText().toString();
         int newRate = Integer.parseInt(updateMovieRateEdit.getText().toString());
-        //int id = movie.getId();
-
-        movie = new Movie();
-        //movie.setId(id);
         movie.setMovieName(newName);
         movie.setMovieRate(newRate);
-        //movieViewModel.update(newName, newRate, id);
 
         movieViewModel.updateMovies(movie);
     }

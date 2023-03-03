@@ -53,12 +53,13 @@ public class MovieDataExample extends Fragment {
         deleteAllButton = view.findViewById(R.id.deleteAllButton);
 
         //Read and show data
-        MovieListAdapter movieListAdapter = new MovieListAdapter(new MovieListAdapter.MovieDiff());
+        movieViewModel = new ViewModelProvider(this).get(MovieViewModel.class);
+
+        MovieListAdapter movieListAdapter = new MovieListAdapter(new MovieListAdapter.MovieDiff(), movieViewModel);
         movieRecyclerView.setAdapter(movieListAdapter);
         movieRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         //Object of ViewModel
-        movieViewModel = new ViewModelProvider(this).get(MovieViewModel.class);
         movieViewModel.getAllMovies().observe(getViewLifecycleOwner(), movieListAdapter::submitList);
 
         //onClick (Add) button

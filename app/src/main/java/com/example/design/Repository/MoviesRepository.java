@@ -41,7 +41,6 @@ public class MoviesRepository {
         MovieDB.service.execute(() -> moviesDao.deleteMovie(movie));
     }
 
-    //new
     public void deleteAll() {
         MovieDB.service.execute(() -> moviesDao.deleteAll());
     }
