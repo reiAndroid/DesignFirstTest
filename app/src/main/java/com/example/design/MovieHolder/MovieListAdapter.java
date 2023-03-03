@@ -2,15 +2,21 @@ package com.example.design.MovieHolder;
 
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import com.example.design.MovieData.Movie;
+import com.example.design.MovieData.MovieDB;
 import com.example.design.R;
+import com.example.design.ViewModel.MovieViewModel;
 import com.example.design.datastore.SaveData;
+
+import java.util.List;
 
 public class MovieListAdapter extends ListAdapter<Movie, MovieViewHolder> {
 
@@ -47,6 +53,8 @@ public class MovieListAdapter extends ListAdapter<Movie, MovieViewHolder> {
             deleteAlert.setMessage("Are you sure you want to delete "+ currentMovie.getMovieName() + " movie?");
             deleteAlert.setPositiveButton("Yes", ((dialog, which) -> {
                 //TODO: Delete Item
+                MovieViewModel viewModel = new ViewModelProvider((ViewModelStoreOwner) this).get(MovieViewModel.class);
+                viewModel.delete(currentMovie);
                 Toast.makeText(holder.itemView.getContext(), "Problem to delete", Toast.LENGTH_SHORT).show();
             }));
             deleteAlert.setNegativeButton("No", ((dialog, which) -> Toast.makeText(holder.itemView.getContext(), "Nothing to delete", Toast.LENGTH_SHORT).show()));

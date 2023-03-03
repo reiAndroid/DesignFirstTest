@@ -3,6 +3,7 @@ package com.example.design.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -11,10 +12,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.design.MovieData.Movie;
 import com.example.design.R;
+import com.example.design.ViewModel.MovieViewModel;
 import com.example.design.datastore.SaveData;
 
 public class UpdateFragment extends Fragment {
+
+    private Movie movie;
+
+    private MovieViewModel movieViewModel;
 
     private EditText updateMovieNameEdit, updateMovieRateEdit;
 
@@ -46,10 +54,28 @@ public class UpdateFragment extends Fragment {
                 Toast.makeText(getContext(), "Nothing to Update!", Toast.LENGTH_SHORT).show();
                 Navigation.findNavController(view).navigate(R.id.movieDataExample);
             } else {
+                updateMovie();
                 Navigation.findNavController(view).navigate(R.id.movieDataExample);
             }
         });
 
         return view;
+    }
+
+    public void updateMovie() {
+        //TODO: Update Item
+        movieViewModel = new ViewModelProvider(this).get(MovieViewModel.class);
+
+        String newName = updateMovieNameEdit.getText().toString();
+        int newRate = Integer.parseInt(updateMovieRateEdit.getText().toString());
+        //int id = movie.getId();
+
+        movie = new Movie();
+        //movie.setId(id);
+        movie.setMovieName(newName);
+        movie.setMovieRate(newRate);
+        //movieViewModel.update(newName, newRate, id);
+
+        movieViewModel.updateMovies(movie);
     }
 }
