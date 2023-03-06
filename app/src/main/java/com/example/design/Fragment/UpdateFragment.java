@@ -22,8 +22,6 @@ public class UpdateFragment extends Fragment {
 
     private Movie movie;
 
-    private MovieViewModel movieViewModel;
-
     private EditText updateMovieNameEdit, updateMovieRateEdit;
 
     @Override
@@ -68,7 +66,7 @@ public class UpdateFragment extends Fragment {
     }
 
     public void updateMovie() {
-        movieViewModel = new ViewModelProvider(this).get(MovieViewModel.class);
+        MovieViewModel movieViewModel = new ViewModelProvider(this).get(MovieViewModel.class);
 
         String newName = updateMovieNameEdit.getText().toString();
         int newRate = Integer.parseInt(updateMovieRateEdit.getText().toString());
