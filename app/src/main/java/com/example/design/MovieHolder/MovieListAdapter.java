@@ -1,21 +1,20 @@
 package com.example.design.MovieHolder;
 
-import android.content.Context;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import com.example.design.MovieData.Movie;
-import com.example.design.MovieData.MoviesDao;
 import com.example.design.R;
 import com.example.design.ViewModel.MovieViewModel;
 import com.example.design.datastore.SaveData;
 
-public class MovieListAdapter extends ListAdapter<Movie, MovieViewHolder> {
+public class MovieListAdapter extends ListAdapter<Movie, MovieViewHolder> implements Filterable {
     private MovieViewModel movieViewModel;
 
     public MovieListAdapter (@NonNull DiffUtil.ItemCallback<Movie> diffCallBackMovie, MovieViewModel movieViewModel) {
@@ -51,13 +50,28 @@ public class MovieListAdapter extends ListAdapter<Movie, MovieViewHolder> {
             AlertDialog.Builder deleteAlert = new AlertDialog.Builder(holder.itemView.getContext());
             deleteAlert.setTitle("Delete " + currentMovie.getMovieName());
             deleteAlert.setMessage("Are you sure you want to delete "+ currentMovie.getMovieName() + " movie?");
-            deleteAlert.setPositiveButton("Yes", ((dialog, which) -> {
-                movieViewModel.delete(currentMovie);
-            }));
+            deleteAlert.setPositiveButton("Yes", ((dialog, which) -> movieViewModel.delete(currentMovie)));
             deleteAlert.setNegativeButton("No", ((dialog, which) -> Toast.makeText(holder.itemView.getContext(), "Nothing to delete", Toast.LENGTH_SHORT).show()));
 
             deleteAlert.show();
         });
+    }
+
+    @Override
+    protected Movie getItem(int position) {
+        return super.getItem(position);
+    }
+
+    @Override
+    public Filter getFilter() {
+        /*if(valueFilter==null) {
+
+            valueFilter=new ValueFilter();
+
+        }
+
+        return valueFilter;*/
+        return null;
     }
 
     public static class MovieDiff extends DiffUtil.ItemCallback<Movie> {

@@ -165,7 +165,7 @@
         android:id="@+id/button_open_data"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Movie Data"
+        android:text="Students"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"

@@ -1,12 +1,11 @@
 package com.example.design.MovieData;
-
-import static com.example.design.Fragment.MovieDataExample.roomCallBack;
-
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -32,4 +31,18 @@ public abstract class MovieDB extends RoomDatabase {
         }
         return INSTANCE;
     }
+
+    public static RoomDatabase.Callback roomCallBack = new RoomDatabase.Callback() {
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+
+            service.execute(() -> {
+                MoviesDao mDao = INSTANCE.moviesDao();
+
+                Movie movie = new Movie(0, "Anna", 6);
+                mDao.insertMovie(movie);
+            });
+        }
+    };
 }

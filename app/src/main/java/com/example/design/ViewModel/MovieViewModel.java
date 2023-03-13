@@ -3,6 +3,8 @@ package com.example.design.ViewModel;
 import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
 import com.example.design.MovieData.Movie;
 import com.example.design.Repository.MoviesRepository;
 
@@ -11,7 +13,8 @@ import java.util.List;
 public class MovieViewModel extends AndroidViewModel {
 
     private MoviesRepository moviesRepository;
-    private final LiveData<List<Movie>> allMovies;
+    private LiveData<List<Movie>> allMovies = new MutableLiveData();
+    public LiveData<List<Movie>> searchResults = new MutableLiveData(allMovies);
 
     public MovieViewModel (Application application) {
         super(application);
@@ -42,5 +45,9 @@ public class MovieViewModel extends AndroidViewModel {
 
     public void deleteAll() {
         moviesRepository.deleteAll();
+    }
+
+    public void searchMovies(String searchMovies) {
+
     }
 }

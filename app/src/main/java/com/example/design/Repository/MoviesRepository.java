@@ -44,4 +44,8 @@ public class MoviesRepository {
     public void deleteAll() {
         MovieDB.service.execute(() -> moviesDao.deleteAll());
     }
+
+    public LiveData<List<Movie>> searchMovie(String searchMovie) {
+        return moviesDao.searchMovie(searchMovie);
+    }
 }

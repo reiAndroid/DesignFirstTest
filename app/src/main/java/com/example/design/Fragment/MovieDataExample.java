@@ -2,11 +2,11 @@ package com.example.design.Fragment;
 
 import static com.example.design.MovieData.MovieDB.INSTANCE;
 import static com.example.design.MovieData.MovieDB.service;
-
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -14,24 +14,37 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.design.MovieData.Movie;
 import com.example.design.MovieData.MoviesDao;
 import com.example.design.MovieHolder.MovieListAdapter;
 import com.example.design.R;
 import com.example.design.ViewModel.MovieViewModel;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class MovieDataExample extends Fragment {
 
     private MovieViewModel movieViewModel;
+    private MovieListAdapter movieListAdapter;
+    private RecyclerView movieRecyclerView;
+    private Button addMovieButton, deleteAllButton;
+    private SearchView searchView;
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,13 +53,12 @@ public class MovieDataExample extends Fragment {
         View view = inflater.inflate(R.layout.fragment_movie_data_example, container, false);
 
         //Initialize Elements
-        TextView textHello = view.findViewById(R.id.textHello);
-        LinearLayout layoutMainButtons = view.findViewById(R.id.layoutMainButtons);
-        Button addMovieButton = view.findViewById(R.id.addMovieButton);
-        Button deleteAllButton = view.findViewById(R.id.deleteAllButton);
+        addMovieButton = view.findViewById(R.id.addMovieButton);
+        deleteAllButton = view.findViewById(R.id.deleteAllButton);
+        searchView = view.findViewById(R.id.search_view);
 
         //Initialize RecyclerView
-        RecyclerView movieRecyclerView = view.findViewById(R.id.movieRecyclerView);
+        movieRecyclerView = view.findViewById(R.id.movieRecyclerView);
 
         //Initialize Buttons
         addMovieButton = view.findViewById(R.id.addMovieButton);
@@ -55,7 +67,7 @@ public class MovieDataExample extends Fragment {
         //Read and show data
         movieViewModel = new ViewModelProvider(this).get(MovieViewModel.class);
 
-        MovieListAdapter movieListAdapter = new MovieListAdapter(new MovieListAdapter.MovieDiff(), movieViewModel);
+        movieListAdapter = new MovieListAdapter(new MovieListAdapter.MovieDiff(), movieViewModel);
         movieRecyclerView.setAdapter(movieListAdapter);
         movieRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -79,28 +91,87 @@ public class MovieDataExample extends Fragment {
 
             //Other button
             alert.setNegativeButton("Cancel",
-                    ((dialog, which) -> {
-                        Toast.makeText(getContext(), "Nothing deleted!", Toast.LENGTH_SHORT).show();
-                    }));
+                    ((dialog, which) -> Toast.makeText(getContext(), "Nothing deleted!", Toast.LENGTH_SHORT).show()));
 
             alert.show();
         });
 
+        searchMovies();
+
         return view;
     }
 
+    private void searchMovies(){
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                System.out.println("print query " + query + " " + movieListAdapter.getCurrentList().size());
+                if (movieListAdapter != null)
+                    movieListAdapter.getFilter().filter(query);
+                return false;
+            }
 
-    public static RoomDatabase.Callback roomCallBack = new RoomDatabase.Callback() {
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+    }
 
-            service.execute(() -> {
-                MoviesDao mDao = INSTANCE.moviesDao();
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
 
-                Movie movie = new Movie(0, "Anna", 6);
-                mDao.insertMovie(movie);
-            });
+        inflater.inflate(R.menu.search_view, menu);
+        MenuItem item = menu.findItem(R.id.searchViewToolbar);
+        System.out.println("print movies list1 " );
+
+        SearchView searchView = (SearchView) item.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if (query!=null) {
+                    getItemsFromDB(query);
+                }
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                System.out.println("print movies list2 " + newText);
+                if (newText!=null) {
+                    getItemsFromDB(newText);
+                }
+                return true;
+            }
+        });
+    }
+
+    private void getItemsFromDB(String searchMovie) {
+        /*String searchText;
+        searchText = "%"+searchMovie+"%";
+
+        List<Movie> movies = new ArrayList<>();
+        LiveData<List<Movie>> liveDataMovie = movieViewModel.searchMovies(searchText);
+
+        liveDataMovie.observe(this, movies1 -> {
+            movies1.addAll(movies1);
+            movieListAdapter.submitList(movies1);
+            movieRecyclerView.setAdapter(movieListAdapter);
+
+            Log.e("List", movies.toString());*/
+        List<Movie> movies = new ArrayList<>();
+        searchMovie = searchMovie.toLowerCase(Locale.getDefault());
+        movies.clear();
+        System.out.println("print movies list " + movies);
+
+        if (searchMovie.length()==0) {
+            movies.addAll(movieListAdapter.getCurrentList());
+        } else {
+            for (Movie movie: movieListAdapter.getCurrentList()) {
+                if (movie.movieName.toLowerCase(Locale.getDefault()).contains(searchMovie)) {
+                    movies.add(movie);
+                }
+            }
         }
-    };
+    }
 }

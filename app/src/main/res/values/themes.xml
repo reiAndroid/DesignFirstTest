@@ -122,8 +122,7 @@
 
     <style name="SearchView" parent="Widget.AppCompat.SearchView">
         <item name="searchIcon">@drawable/baseline_saved_search_24</item>
-        <item name="android:textColorPrimary">@color/white</item>
-        <item name="android:textColorSecondary">@color/light_gray</item>
+        <item name="android:editTextColor">@color/white</item>
     </style>
 
 </resources>

@@ -2,7 +2,6 @@ package com.example.design.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -20,15 +19,12 @@ import android.widget.Toast;
 import com.example.design.R;
 import com.example.design.datastore.SaveData;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class MainActivity extends AppCompatActivity {
 
     //Here we declare as global, elements inside our layout
     private EditText txtName, txtLastName, txtEmail, txtPassword, txtRepPassword;
     private TextView txtAcc, txtStarted, txt_user;
-    private Button btnLog, button_open_data;
+    private Button btnLog;
     private ConstraintLayout second_cons, parent_layout;
     private ImageView info_error, info_error_pass, info_error_rep_pass;
 
@@ -37,22 +33,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SaveData saveData = new SaveData(MainActivity.this);
-
         init();
         actions();
     }
 
     public void init(){
 
-        button_open_data = findViewById(R.id.button_open_data);
+        Button students = findViewById(R.id.button_open_data);
 
-        button_open_data.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               Intent intent = new Intent(MainActivity.this, MovieExample.class);
-               startActivity(intent);
-            }
+        students.setOnClickListener(v -> {
+           Intent intent = new Intent(MainActivity.this, MovieExample.class);
+           startActivity(intent);
         });
         //Here we initialize the elements inside our layout
         txtName = findViewById (R.id.txtName);
@@ -145,40 +136,31 @@ public class MainActivity extends AppCompatActivity {
         info_error_rep_pass.setVisibility(View.INVISIBLE);
 
         //If the user tap Get Started
-        second_cons.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        second_cons.setOnClickListener(view -> {
 
-                checkUserInput(txtName.getText().toString(),
-                        txtLastName.getText().toString(),
-                        txtEmail.getText().toString(),
-                        txtPassword.getText().toString(),
-                        txtRepPassword.getText().toString());
+            checkUserInput(txtName.getText().toString(),
+                    txtLastName.getText().toString(),
+                    txtEmail.getText().toString(),
+                    txtPassword.getText().toString(),
+                    txtRepPassword.getText().toString());
 
-                SaveData.setString("userName", txtName.getText().toString());
-                SaveData.setString("userLastName", txtLastName.getText().toString());
-                SaveData.setString("userEmail", txtEmail.getText().toString());
-                SaveData.setString("userPassword", txtPassword.getText().toString());
-            }
+            SaveData.setString("userName", txtName.getText().toString());
+            SaveData.setString("userLastName", txtLastName.getText().toString());
+            SaveData.setString("userEmail", txtEmail.getText().toString());
+            SaveData.setString("userPassword", txtPassword.getText().toString());
         });
 
         //If the user click Log In button
-        btnLog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent (MainActivity.this, LogIn.class);
-                startActivity(intent);
-            }
+        btnLog.setOnClickListener(view -> {
+            Intent intent = new Intent (MainActivity.this, LogIn.class);
+            startActivity(intent);
         });
 
         //Make an underline text; If the user click the Text
         txt_user.setPaintFlags(txt_user.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        txt_user.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent terms = new Intent(MainActivity.this, ExampleOfDatabase.class);
-                startActivity(terms);
-            }
+        txt_user.setOnClickListener(view -> {
+            Intent terms = new Intent(MainActivity.this, ExampleOfDatabase.class);
+            startActivity(terms);
         });
 
         //Create an animation (Color changed) background

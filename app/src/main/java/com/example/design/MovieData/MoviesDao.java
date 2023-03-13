@@ -28,4 +28,7 @@ public interface MoviesDao {
 
     @Query("SELECT*FROM movies")
     LiveData<List<Movie>> moviesData();
+
+    @Query("SELECT * FROM movies WHERE movieName LIKE :searchMovie")
+    LiveData<List<Movie>> searchMovie(String searchMovie);
 }

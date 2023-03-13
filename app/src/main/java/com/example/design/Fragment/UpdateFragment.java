@@ -30,6 +30,7 @@ public class UpdateFragment extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_update, container, false);
 
+        //Get Data
         movie = new Movie();
         movie.id = SaveData.getInt("movieId");
         movie.movieRate = SaveData.getInt("movieRate");
