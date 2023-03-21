@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/students_nav"
+    app:startDestination="@id/studentsMain">
+
+    <fragment
+        android:id="@+id/studentsMain"
+        android:name="com.example.design.Fragment.StudentsMain"
+        android:label="fragment_students_main"
+        tools:layout="@layout/fragment_students_main" >
+        <action
+            android:id="@+id/action_studentsMain_to_addStudents"
+            app:destination="@id/addStudents" />
+        <action
+            android:id="@+id/action_studentsMain_to_updateStudent"
+            app:destination="@id/updateStudent" />
+    </fragment>
+    <fragment
+        android:id="@+id/addStudents"
+        android:name="com.example.design.Fragment.AddStudents"
+        android:label="fragment_add_students"
+        tools:layout="@layout/fragment_add_students" >
+        <action
+            android:id="@+id/action_addStudents_to_studentsMain"
+            app:destination="@id/studentsMain" />
+        <action
+            android:id="@+id/action_addStudents_to_addNewStudent"
+            app:destination="@id/addNewStudent" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateStudent"
+        android:name="com.example.design.Fragment.UpdateStudent"
+        android:label="fragment_update_student"
+        tools:layout="@layout/fragment_update_student" >
+        <action
+            android:id="@+id/action_updateStudent_to_studentsMain"
+            app:destination="@id/studentsMain" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewStudent"
+        android:name="com.example.design.Fragment.AddNewStudent"
+        android:label="fragment_add_new_student"
+        tools:layout="@layout/fragment_add_new_student" >
+        <action
+            android:id="@+id/action_addNewStudent_to_addStudents"
+            app:destination="@id/addStudents" />
+    </fragment>
+</navigation>

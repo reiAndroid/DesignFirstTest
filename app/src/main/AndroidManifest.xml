@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Design"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.Students"
+            android:exported="false" />
+        <activity
             android:name=".Activities.MovieExample"
             android:exported="false" />
         <activity
