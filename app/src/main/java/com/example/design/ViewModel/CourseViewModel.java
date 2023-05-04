@@ -3,6 +3,7 @@ package com.example.design.ViewModel;
 import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import com.example.design.Courses.Courses;
 import com.example.design.Repository.CourseRepository;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 public class CourseViewModel extends AndroidViewModel {
 
     private CourseRepository courseRepository;
-    private List<Courses> coursesList;
+    private LiveData<List<Courses>> coursesList;
     public CourseViewModel(@NonNull Application application) {
         super(application);
 
@@ -18,7 +19,7 @@ public class CourseViewModel extends AndroidViewModel {
         coursesList = courseRepository.getCoursesList();
     }
 
-    public List<Courses> getCoursesList() {
+    public LiveData<List<Courses>> getCoursesList() {
         return coursesList;
     }
 

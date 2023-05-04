@@ -17,11 +17,10 @@ public class Students {
     public double studentAverage;
     public boolean excellent = false;
     public boolean working = false;
-
-    public int course_id = -1;
+    public String course_name;
 
     //Object constructor
-    public Students (int studentId, String studentName, String studentSurname, int studentAge, double studentAverage, boolean excellent, boolean working, int course_id) {
+    public Students (int studentId, String studentName, String studentSurname, int studentAge, double studentAverage, boolean excellent, boolean working, String course_name) {
         this.studentId = studentId;
         this.studentName = studentName;
         this.studentSurname = studentSurname;
@@ -29,7 +28,7 @@ public class Students {
         this.studentAverage = studentAverage;
         this.excellent = excellent;
         this.working = working;
-        this.course_id = course_id;
+        this.course_name = course_name;
     }
 
     //Null constructor
@@ -94,11 +93,11 @@ public class Students {
     }
 
     //Getter and Setter for Course ID
-    public int getCourse_id() {
-        return course_id;
+    public String getCourse_name() {
+        return course_name;
     }
 
-    public void setCourse_id(int courseId) {
-        this.course_id = courseId;
+    public void setCourse_name(String course_name) {
+        this.course_name = course_name;
     }
 }

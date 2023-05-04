@@ -3,19 +3,16 @@ package com.example.design.ViewModel;
 import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-
+import androidx.lifecycle.LiveData;
 import com.example.design.Repository.StudentRepository;
-import com.example.design.students.CourseAndStudent;
-import com.example.design.Courses.Courses;
 import com.example.design.students.Students;
 
 import java.util.List;
 
 public class StdViewModel extends AndroidViewModel {
 
-    private StudentRepository studentRepository;
-    private List<Students> students;
-
+    private final StudentRepository studentRepository;
+    private final LiveData<List<Students>> students;
     public StdViewModel(@NonNull Application application) {
         super(application);
 
@@ -24,7 +21,7 @@ public class StdViewModel extends AndroidViewModel {
     }
 
 
-    public List<Students> getStudents() {
+    public LiveData<List<Students>> getStudents() {
         return students;
     }
 
@@ -42,5 +39,9 @@ public class StdViewModel extends AndroidViewModel {
 
     public void updateStudent(Students students) {
         studentRepository.updateStudent(students);
+    }
+
+    public Students getStudentsById(int studentId) {
+        return studentRepository.getStdById(studentId);
     }
 }

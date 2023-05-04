@@ -24,4 +24,38 @@ public class CourseAndStudent {
 
     @ColumnInfo(name = "joinCourseId")
     public int joinCourseId;
+
+    public CourseAndStudent() {
+
+    }
+
+    public CourseAndStudent(int id, int joinStudentId, int joinCourseId) {
+        this.id = id;
+        this.joinStudentId = joinStudentId;
+        this.joinCourseId = joinCourseId;
+    }
+
+    public int getId () {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getJoinStudentId() {
+        return joinStudentId;
+    }
+
+    public void setJoinStudentId(int joinStudentId) {
+        this.joinStudentId = joinStudentId;
+    }
+
+    public int getJoinCourseId() {
+        return joinCourseId;
+    }
+
+    public void setJoinCourseId(int joinCourseId) {
+        this.joinCourseId = joinCourseId;
+    }
 }

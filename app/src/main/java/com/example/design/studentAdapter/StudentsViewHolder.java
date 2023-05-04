@@ -10,7 +10,7 @@ import com.example.design.R;
 
 public class StudentsViewHolder extends RecyclerView.ViewHolder{
 
-    private TextView textStudentName, textStudentSurName, textStudentAge, textStudentAverage, textStudentConditional, textStudentExcellence, textCourse;
+    private TextView textStudentName, textStudentSurName, textStudentAge, textStudentAverage, textStudentConditional, textStudentExcellence, textCourse, studentId;
 
     public StudentsViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -21,8 +21,14 @@ public class StudentsViewHolder extends RecyclerView.ViewHolder{
         textStudentAverage = itemView.findViewById(R.id.textStudentAverage);
         textStudentConditional = itemView.findViewById(R.id.textStudentConditional);
         textStudentExcellence = itemView.findViewById(R.id.textStudentExcellence);
+        studentId = itemView.findViewById(R.id.studentId);
+
         //Latest Change
         textCourse = itemView.findViewById(R.id.textCourse);
+    }
+
+    public void setStudentId(int id) {
+        studentId.setText(String.valueOf(id));
     }
 
     public void setTextStudentName(String studentName) {

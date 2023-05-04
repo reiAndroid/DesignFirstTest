@@ -38,6 +38,23 @@ public abstract class CourseDatabase extends RoomDatabase {
 
             courseService.execute(()-> {
                 CoursesDao coursesDao = COURSE_INSTANCE.coursesDao();
+                Courses courses = new Courses(-1, "English");
+                coursesDao.addCoursesInDb(courses);
+
+                courses = new Courses(courses.courseId, "Math");
+                coursesDao.addCoursesInDb(courses);
+
+                courses = new Courses(courses.courseId, "Physic");
+                coursesDao.addCoursesInDb(courses);
+
+                courses = new Courses(courses.courseId, "AI");
+                coursesDao.addCoursesInDb(courses);
+
+                courses = new Courses(courses.courseId, "Database");
+                coursesDao.addCoursesInDb(courses);
+
+                courses = new Courses(courses.courseId, "Biology");
+                coursesDao.addCoursesInDb(courses);
             });
         }
     };

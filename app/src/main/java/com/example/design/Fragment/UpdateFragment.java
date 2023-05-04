@@ -31,10 +31,10 @@ public class UpdateFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_update, container, false);
 
         //Get Data
-        movie = new Movie();
+        /*movie = new Movie();
         movie.id = SaveData.getInt("movieId");
         movie.movieRate = SaveData.getInt("movieRate");
-        movie.movieName = SaveData.getString("movieName");
+        movie.movieName = SaveData.getString("movieName");*/
 
         //Initialize of User Elements
         updateMovieNameEdit = view.findViewById(R.id.updateMovieNameEdit);
@@ -43,8 +43,8 @@ public class UpdateFragment extends Fragment {
         Button updateMovieButton = view.findViewById(R.id.updateMovieButton);
 
         //Show Data
-        updateMovieNameEdit.setText(SaveData.getString("movieName"));
-        updateMovieRateEdit.setText(String.valueOf(SaveData.getInt("movieRate")));
+        /*updateMovieNameEdit.setText(SaveData.getString("movieName"));
+        updateMovieRateEdit.setText(String.valueOf(SaveData.getInt("movieRate")));*/
 
         //onClick (cancel)
         cancelUpdate.setOnClickListener(view1-> {

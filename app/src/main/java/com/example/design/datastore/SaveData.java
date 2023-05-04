@@ -7,7 +7,7 @@ public class SaveData {
     private static Context context;
 
     public SaveData(Context context){
-        SaveData.context = context;
+        this.context = context;
     }
 
     public final static String PREFS_NAME = "movies_prefs";
@@ -53,4 +53,16 @@ public class SaveData {
         SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, 0);
         return prefs.getBoolean(key,false);
     }
+
+    /*public static SharedPreferences.Editor putDouble(final SharedPreferences.Editor edit, final String key, final double value) {
+        return edit.putLong(key, Double.doubleToRawLongBits(value));
+    }
+
+    public static double getDouble(final SharedPreferences pref, String key, final double defaultValue) {
+
+        if(!pref.contains(key)) {
+            return defaultValue;
+        }
+        return Double.longBitsToDouble(pref.getLong(key,0));
+    }*/
 }

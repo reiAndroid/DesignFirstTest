@@ -23,6 +23,8 @@ public abstract class StudentDatabase extends RoomDatabase {
                 if(STUDENT_INSTANCE==null) {
                     STUDENT_INSTANCE = Room.databaseBuilder(context.getApplicationContext(), StudentDatabase.class, "students")
                             .addCallback(studentsRoomCallBack)
+                            //TODO:Explain this
+                            .allowMainThreadQueries()
                             .build();
                 }
             }
@@ -38,6 +40,9 @@ public abstract class StudentDatabase extends RoomDatabase {
 
             studentService.execute(() -> {
                 StudentDao studentDao = STUDENT_INSTANCE.studentDao();
+
+                Students students = new Students(1, "Rei", "Kraja", 21, 9.5, true, true, "English");
+                studentDao.addStudent(students);
             });
         }
     };

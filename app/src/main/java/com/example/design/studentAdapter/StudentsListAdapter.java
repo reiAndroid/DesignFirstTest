@@ -1,7 +1,6 @@
 package com.example.design.studentAdapter;
 
-
-import android.view.View;
+import android.os.Bundle;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
@@ -12,10 +11,8 @@ import com.example.design.students.Students;
 import com.example.design.R;
 
 public class StudentsListAdapter extends ListAdapter<Students, StudentsViewHolder> {
-    private CourseViewModel courseViewModel;
     public StudentsListAdapter(@NonNull DiffUtil.ItemCallback<Students> diffCallback, CourseViewModel courseViewModel) {
         super(diffCallback);
-        this.courseViewModel = courseViewModel;
     }
 
     @NonNull
@@ -29,25 +26,21 @@ public class StudentsListAdapter extends ListAdapter<Students, StudentsViewHolde
 
 
         Students currentStudents = getItem(position);
+        holder.setStudentId(currentStudents.getStudentId());
         holder.setTextStudentName(currentStudents.getStudentName());
         holder.setTextStudentSurName(currentStudents.getStudentSurname());
         holder.setTextStudentAge(currentStudents.getStudentAge());
         holder.setTextStudentAverage(currentStudents.getStudentAverage());
         holder.setTextStudentConditional(currentStudents.isWorking());
         holder.setTextStudentExcellence(currentStudents.isExcellent());
-        //Latest change
         holder.setTextCourse(currentStudents.getCourse_name());
 
 
-        holder.itemView.setOnClickListener(v -> {
-            currentStudents.studentId = currentStudents.getStudentId();
-            currentStudents.studentName = currentStudents.getStudentName();
-            currentStudents.studentSurname = currentStudents.getStudentSurname();
-            currentStudents.studentAge = currentStudents.getStudentAge();
-            currentStudents.studentAverage = currentStudents.getStudentAverage();
-            currentStudents.working = currentStudents.isWorking();
-            currentStudents.excellent = currentStudents.isExcellent();
-            Navigation.findNavController(holder.itemView).navigate(R.id.updateStudent);
+        holder.itemView.findViewById(R.id.textCourse).setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("studentId", String.valueOf(currentStudents.getStudentId()));
+
+            Navigation.findNavController(holder.itemView).navigate(R.id.updateStudent, bundle);
         });
 
     }

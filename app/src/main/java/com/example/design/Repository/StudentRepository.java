@@ -1,8 +1,7 @@
 package com.example.design.Repository;
 
 import android.app.Application;
-import com.example.design.students.CourseAndStudent;
-import com.example.design.Courses.Courses;
+import androidx.lifecycle.LiveData;
 import com.example.design.students.StudentDao;
 import com.example.design.students.StudentDatabase;
 import com.example.design.students.Students;
@@ -11,7 +10,7 @@ import java.util.List;
 
 public class StudentRepository {
     private StudentDao studentDao;
-    private List<Students> allStudents;
+    private LiveData<List<Students>> allStudents;
 
     public StudentRepository(Application app) {
         StudentDatabase studentDatabase = StudentDatabase.getStudentInstance(app);
@@ -35,7 +34,11 @@ public class StudentRepository {
         StudentDatabase.studentService.execute(() -> studentDao.updateStudent(students));
     }
 
-    public List<Students> getAllStudents() {
+    public LiveData<List<Students>> getAllStudents() {
         return allStudents;
+    }
+
+    public Students getStdById(int studentId) {
+       return studentDao.getStudentsById(studentId);
     }
 }

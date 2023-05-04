@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_updateStudent_to_studentsMain"
             app:destination="@id/studentsMain" />
+        <action
+            android:id="@+id/action_updateStudent_to_changeAttributes"
+            app:destination="@id/changeAttributes" />
     </fragment>
     <fragment
         android:id="@+id/addNewStudent"
@@ -46,5 +49,14 @@
         <action
             android:id="@+id/action_addNewStudent_to_addStudents"
             app:destination="@id/addStudents" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeAttributes"
+        android:name="com.example.design.Fragment.ChangeAttributes"
+        android:label="fragment_change_attributes"
+        tools:layout="@layout/fragment_change_attributes" >
+        <action
+            android:id="@+id/action_changeAttributes_to_updateStudent"
+            app:destination="@id/updateStudent" />
     </fragment>
 </navigation>

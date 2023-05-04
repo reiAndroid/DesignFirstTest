@@ -1,5 +1,6 @@
 package com.example.design.students;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -28,5 +29,8 @@ public interface StudentDao {
 
     //Get Students
     @Query("SELECT * FROM students")
-    List<Students> getStudents();
+    LiveData<List<Students>> getStudents();
+
+    @Query("SELECT * FROM students WHERE studentId=:studentsId")
+    Students getStudentsById(int studentsId);
 }

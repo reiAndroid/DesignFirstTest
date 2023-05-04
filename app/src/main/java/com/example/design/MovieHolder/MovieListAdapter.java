@@ -39,9 +39,9 @@ public class MovieListAdapter extends ListAdapter<Movie, MovieViewHolder> implem
         holder.itemView.findViewById(R.id.textMovieName).setOnClickListener(v ->{
 
             //Using SharedPrefs
-            SaveData.setString("movieName", currentMovie.getMovieName());
+            /*SaveData.setString("movieName", currentMovie.getMovieName());
             SaveData.setInt("movieRate", currentMovie.getMovieRate());
-            SaveData.setInt("movieId", currentMovie.getId());
+            SaveData.setInt("movieId", currentMovie.getId());*/
 
             Navigation.findNavController(holder.itemView).navigate(R.id.updateFragment);
         });

@@ -22,12 +22,7 @@ public class StudentsMain extends Fragment {
 
         register = viewStudent.findViewById(R.id.addStudentButton);
 
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(viewStudent).navigate(R.id.addStudents);
-            }
-        });
+        register.setOnClickListener(v -> Navigation.findNavController(viewStudent).navigate(R.id.addStudents));
 
         return viewStudent;
     }

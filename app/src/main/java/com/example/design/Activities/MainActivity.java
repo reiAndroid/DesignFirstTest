@@ -42,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
         Button students = findViewById(R.id.button_open_data);
 
         students.setOnClickListener(v -> {
-            //TODO: Change the Intent
-           Intent intent = new Intent(MainActivity.this, Students.class);
+           Intent intent = new Intent(MainActivity.this, Student.class);
            startActivity(intent);
         });
         //Here we initialize the elements inside our layout

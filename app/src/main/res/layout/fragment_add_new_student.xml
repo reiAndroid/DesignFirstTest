@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CFB5AF"
     tools:context=".Fragment.AddNewStudent">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="38dp"
         android:fontFamily="@font/allerta"
         android:text="ADD NEW STUDENT"
         android:textSize="35sp"
@@ -76,40 +77,20 @@
             android:background="@drawable/custiom_edit_text_layout"
             android:drawableEnd="@drawable/custom_name_icon"
             android:hint="Average"
-            android:inputType="number"
-            android:padding="10dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/userInputAgeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userInputNameLayout">
-
-        <EditText
-            android:id="@+id/addAge"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/custiom_edit_text_layout"
-            android:drawableEnd="@drawable/arrow_drop_down"
-            android:hint="Year"
+            android:inputType="numberDecimal"
             android:padding="10dp" />
     </LinearLayout>
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userInputAgeLayout" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userInputNameLayout" />
 
     <TextView
         android:id="@+id/textConditionalAddStudent"
@@ -179,5 +160,64 @@
             android:textSize="18sp" />
 
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/textCourses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/allerta"
+        android:text="Courses"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/textQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:textSize="22sp"
+        android:text="Choose a course"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCourses" />
+
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="409dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textQuestion" />
+
+    <Spinner
+        android:id="@+id/coursesList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="submit"
+        android:textSize="20sp"
+        android:fontFamily="@font/allerta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

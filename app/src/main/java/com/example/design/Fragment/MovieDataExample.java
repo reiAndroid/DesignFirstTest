@@ -91,7 +91,7 @@ public class MovieDataExample extends Fragment {
 
             //Other button
             alert.setNegativeButton("Cancel",
-                    ((dialog, which) -> Toast.makeText(getContext(), "Nothing deleted!", Toast.LENGTH_SHORT).show()));
+                    (dialog, which) -> Toast.makeText(getContext(), "Nothing deleted!", Toast.LENGTH_SHORT).show());
 
             alert.show();
         });

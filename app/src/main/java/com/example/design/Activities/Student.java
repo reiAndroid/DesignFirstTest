@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.design.R;
 
-public class Students extends AppCompatActivity {
+public class Student extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

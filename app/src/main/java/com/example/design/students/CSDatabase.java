@@ -41,6 +41,8 @@ public abstract class CSDatabase extends RoomDatabase{
 
             executorService.execute(()-> {
                 CourseAndStudentsDao csDao = csDatabaseInstance.courseAndStudentsDao();
+                CourseAndStudent courseAndStudent = new CourseAndStudent();
+                csDao.findAll(courseAndStudent.id);
             });
         }
     };
