@@ -3,6 +3,8 @@ package com.example.design.studentAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +13,7 @@ import com.example.design.R;
 public class StudentsViewHolder extends RecyclerView.ViewHolder{
 
     private TextView textStudentName, textStudentSurName, textStudentAge, textStudentAverage, textStudentConditional, textStudentExcellence, textCourse, studentId;
+    private ImageButton removeStudent;
 
     public StudentsViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -22,8 +25,7 @@ public class StudentsViewHolder extends RecyclerView.ViewHolder{
         textStudentConditional = itemView.findViewById(R.id.textStudentConditional);
         textStudentExcellence = itemView.findViewById(R.id.textStudentExcellence);
         studentId = itemView.findViewById(R.id.studentId);
-
-        //Latest Change
+        removeStudent = itemView.findViewById(R.id.remove_student_button);
         textCourse = itemView.findViewById(R.id.textCourse);
     }
 

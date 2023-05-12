@@ -143,11 +143,11 @@ public class MainActivity extends AppCompatActivity {
                     txtEmail.getText().toString(),
                     txtPassword.getText().toString(),
                     txtRepPassword.getText().toString());
-
+/*
             SaveData.setString("userName", txtName.getText().toString());
             SaveData.setString("userLastName", txtLastName.getText().toString());
             SaveData.setString("userEmail", txtEmail.getText().toString());
-            SaveData.setString("userPassword", txtPassword.getText().toString());
+            SaveData.setString("userPassword", txtPassword.getText().toString());*/
         });
 
         //If the user click Log In button

@@ -91,14 +91,14 @@ public class AddNewStudent extends Fragment implements AdapterView.OnItemSelecte
 
             if (TextUtils.isEmpty(addName.getText()) || TextUtils.isEmpty(addSurname.getText()) || TextUtils.isEmpty(addAvg.getText())) {
                 Toast.makeText(getContext(), "Nothing to submit, please check again!", Toast.LENGTH_SHORT).show();
-                Navigation.findNavController(view).navigate(R.id.addStudents);
+                requireActivity().getSupportFragmentManager().popBackStack();
             } else {
                 students.studentName = addName.getText().toString();
                 students.studentSurname = addSurname.getText().toString();
                 checkExcellence();
                 isButtonChecked();
                 stdViewModel.addStudent(students);
-                Navigation.findNavController(view).navigate(R.id.addStudents);
+                requireActivity().getSupportFragmentManager().popBackStack();
             }
         });
     }

@@ -4,6 +4,8 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
 import com.example.design.Repository.StudentRepository;
 import com.example.design.students.Students;
 
@@ -29,8 +31,8 @@ public class StdViewModel extends AndroidViewModel {
         studentRepository.insertStd(students);
     }
 
-    public void deleteOneStudent(int studentId) {
-        studentRepository.deleteStudent(studentId);
+    public void deleteOneStudent(Students std) {
+        studentRepository.deleteStudent(std);
     }
 
     public void deleteAllStudents() {

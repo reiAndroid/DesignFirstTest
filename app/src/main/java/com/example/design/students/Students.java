@@ -77,6 +77,7 @@ public class Students {
     }
 
     public boolean isExcellent() {
+        excellent = studentAverage >= 9.5;
         return excellent;
     }
 

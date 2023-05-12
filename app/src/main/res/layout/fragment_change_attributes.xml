@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#DCB2A7"
     android:padding="5dp"
+    android:id="@+id/change_attr"
     tools:context=".Fragment.ChangeAttributes">
 
 

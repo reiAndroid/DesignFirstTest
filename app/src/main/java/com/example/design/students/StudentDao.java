@@ -2,6 +2,7 @@ package com.example.design.students;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -22,6 +23,9 @@ public interface StudentDao {
     //Delete all students
     @Query("DELETE FROM students")
     void deleteAll();
+
+    @Delete
+    void deleteOne(Students students);
 
     //Update one item
     @Update

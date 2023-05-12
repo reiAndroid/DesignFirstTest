@@ -22,8 +22,8 @@ public class StudentRepository {
         StudentDatabase.studentService.execute(() -> studentDao.addStudent(students));
     }
 
-    public void deleteStudent(int id) {
-        StudentDatabase.studentService.execute(() -> studentDao.deleteOneStudent(id));
+    public void deleteStudent(Students students) {
+        StudentDatabase.studentService.execute(() -> studentDao.deleteOne(students));
     }
 
     public void deleteAllStudents() {

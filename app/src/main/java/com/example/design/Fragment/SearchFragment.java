@@ -78,7 +78,7 @@ public class SearchFragment extends ListFragment implements SearchView.OnQueryTe
             }
         }
 
-        //TODO: Check the adapter
+
         adapter = new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, (List) filteredMovies);
         setListAdapter(adapter);
 

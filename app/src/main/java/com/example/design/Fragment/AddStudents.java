@@ -51,14 +51,16 @@ public class AddStudents extends Fragment {
         courseViewModel = new ViewModelProvider(this).get(CourseViewModel.class);
 
         //Set adapter to recyclerview
-        listAdapter = new StudentsListAdapter(new StudentsListAdapter.StudentDiff(), courseViewModel);
+        listAdapter = new StudentsListAdapter(new StudentsListAdapter.StudentDiff(), stdViewModel);
         stdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         stdRecyclerView.setAdapter(listAdapter);
 
         //Show the data
         stdViewModel.getStudents().observe(getViewLifecycleOwner(), listAdapter::submitList);
 
-        ImageButton imageButton = (ImageButton) view.findViewById(R.id.deleteAllStudents);
+        ImageButton imageButton = view.findViewById(R.id.deleteAllStudents);
+
+
         imageButton.setOnClickListener(v -> {
             AlertDialog.Builder delete = new AlertDialog.Builder(requireContext());
             delete.setTitle("Delete All");
@@ -70,20 +72,6 @@ public class AddStudents extends Fragment {
 
             delete.show();
         });
-
-
-        //Delete an item
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-            @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                return false;
-            }
-
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                //TODO: Delete item
-            }
-        }).attachToRecyclerView(stdRecyclerView);
 
         //Navigate to another fragment
         addNewStudentButton.setOnClickListener(view1-> Navigation.findNavController(view).navigate(R.id.addNewStudent));
