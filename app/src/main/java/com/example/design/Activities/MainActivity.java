@@ -2,6 +2,7 @@ package com.example.design.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -17,7 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.design.R;
-import com.example.design.datastore.SaveData;
+import com.example.design.retrofitExamples.ui.posts.Posts;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     private ConstraintLayout second_cons, parent_layout;
     private ImageView info_error, info_error_pass, info_error_rep_pass;
 
+    //Latest Change
+    private List<Posts> alb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,55 +41,72 @@ public class MainActivity extends AppCompatActivity {
 
         init();
         actions();
+
     }
 
-    public void init(){
+
+    public void init() {
 
         Button students = findViewById(R.id.button_open_data);
 
         students.setOnClickListener(v -> {
-           Intent intent = new Intent(MainActivity.this, Student.class);
-           startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, Student.class);
+            startActivity(intent);
         });
+
         //Here we initialize the elements inside our layout
-        txtName = findViewById (R.id.txtName);
-        txtLastName = findViewById (R.id.txtLastName);
-        txtEmail = findViewById (R.id.txtEmail);
-        txtPassword = findViewById (R.id.txtPassword);
-        txtRepPassword = findViewById (R.id.txtRepPassword);
+        txtName = findViewById(R.id.txtName);
+        txtLastName = findViewById(R.id.txtLastName);
+        txtEmail = findViewById(R.id.txtEmail);
+        txtPassword = findViewById(R.id.txtPassword);
+        txtRepPassword = findViewById(R.id.txtRepPassword);
         txt_user = findViewById(R.id.txt_user);
 
         parent_layout = findViewById(R.id.parent_layout);
-        second_cons =  findViewById (R.id.second_constraint_layout);
+        second_cons = findViewById(R.id.second_constraint_layout);
 
-        txtAcc = findViewById (R.id.txtAcc);
-        txtStarted = findViewById (R.id.txtStarted);
+        txtAcc = findViewById(R.id.txtAcc);
+        txtStarted = findViewById(R.id.txtStarted);
         btnLog = findViewById(R.id.btnLog);
 
         info_error = findViewById(R.id.info_error);
         info_error_pass = findViewById(R.id.info_error_pass);
         info_error_rep_pass = findViewById(R.id.info_error_rep_pass);
+
     }
+
+   /* private void getAllAlbums() {
+        Call<List<Posts>> call = RetrofitInstance.getRetrofitInstance()
+                .getAlbumInterface()
+                .getAllAlbums();
+
+        call.enqueue(new Callback<List<Posts>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<Posts>> call, @NonNull Response<List<Posts>> response) {
+                alb = response.body();
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<Posts>> call, @NonNull Throwable t) {
+                Toast.makeText(MainActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }*/
 
     //Here we check if the user inputs are regular
     public void checkUserInput(String inputName, String inputLastName, String email, String password, String repPass) {
 
         if (inputName.equals("")) {
             Toast.makeText(MainActivity.this, "Name can not be empty!", Toast.LENGTH_SHORT).show();
-        }
-        else if (inputLastName.equals("")) {
+        } else if (inputLastName.equals("")) {
             Toast.makeText(this, "Last Name can not be empty!", Toast.LENGTH_SHORT).show();
-        }
-        else if (email.equals("") || !isValidEmail(email)){
+        } else if (email.equals("") || !isValidEmail(email)) {
             Toast.makeText(MainActivity.this, "Email is not correct", Toast.LENGTH_SHORT).show();
-        }
-        else if (password.equals("") || password.length()<8) {
+        } else if (password.equals("") || password.length() < 8) {
             Toast.makeText(this, "Password must contain 8 Characters", Toast.LENGTH_SHORT).show();
-        }
-        else if (repPass.equals("") || !repPass.equals(password)){
+        } else if (repPass.equals("") || !repPass.equals(password)) {
             Toast.makeText(this, "Password not matching", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             Intent intent = new Intent(MainActivity.this, GetStarted.class);
             startActivity(intent);
         }
@@ -143,23 +166,18 @@ public class MainActivity extends AppCompatActivity {
                     txtEmail.getText().toString(),
                     txtPassword.getText().toString(),
                     txtRepPassword.getText().toString());
-/*
-            SaveData.setString("userName", txtName.getText().toString());
-            SaveData.setString("userLastName", txtLastName.getText().toString());
-            SaveData.setString("userEmail", txtEmail.getText().toString());
-            SaveData.setString("userPassword", txtPassword.getText().toString());*/
         });
 
         //If the user click Log In button
         btnLog.setOnClickListener(view -> {
-            Intent intent = new Intent (MainActivity.this, LogIn.class);
+            Intent intent = new Intent(MainActivity.this, LogIn.class);
             startActivity(intent);
         });
 
         //Make an underline text; If the user click the Text
         txt_user.setPaintFlags(txt_user.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         txt_user.setOnClickListener(view -> {
-            Intent terms = new Intent(MainActivity.this, ExampleOfDatabase.class);
+            Intent terms = new Intent(MainActivity.this, TermsAndPrivacy.class);
             startActivity(terms);
         });
 

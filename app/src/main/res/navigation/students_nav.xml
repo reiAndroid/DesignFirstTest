@@ -7,16 +7,19 @@
 
     <fragment
         android:id="@+id/studentsMain"
-        android:name="com.example.design.Fragment.StudentsMain"
+        android:name="com.example.design.students.fragments.StudentsMain"
         android:label="fragment_students_main"
         tools:layout="@layout/fragment_students_main" >
+        <action
+            android:id="@+id/action_studentsMain_to_heroes"
+            app:destination="@id/heroes" />
         <action
             android:id="@+id/action_studentsMain_to_addStudents"
             app:destination="@id/addStudents" />
     </fragment>
     <fragment
         android:id="@+id/addStudents"
-        android:name="com.example.design.Fragment.AddStudents"
+        android:name="com.example.design.students.fragments.AddStudents"
         android:label="fragment_add_students"
         tools:layout="@layout/fragment_add_students" >
         <action
@@ -28,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateStudent"
-        android:name="com.example.design.Fragment.UpdateStudent"
+        android:name="com.example.design.students.fragments.UpdateStudent"
         android:label="fragment_update_student"
         tools:layout="@layout/fragment_update_student" >
         <action
@@ -40,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/addNewStudent"
-        android:name="com.example.design.Fragment.AddNewStudent"
+        android:name="com.example.design.students.fragments.AddNewStudent"
         android:label="fragment_add_new_student"
         tools:layout="@layout/fragment_add_new_student" >
         <action
@@ -49,11 +52,29 @@
     </fragment>
     <fragment
         android:id="@+id/changeAttributes"
-        android:name="com.example.design.Fragment.ChangeAttributes"
+        android:name="com.example.design.students.fragments.ChangeAttributes"
         android:label="fragment_change_attributes"
         tools:layout="@layout/fragment_change_attributes" >
         <action
             android:id="@+id/action_changeAttributes_to_updateStudent"
             app:destination="@id/updateStudent" />
     </fragment>
+    <fragment
+        android:id="@+id/heroes"
+        android:name="com.example.design.retrofitExamples.fragments.RetrofitMainFragment"
+        android:label="fragment_heroes"
+        tools:layout="@layout/fragment_heroes" >
+        <action
+            android:id="@+id/action_heroes_to_createNew"
+            app:destination="@id/createNew" />
+    </fragment>
+    <dialog
+        android:id="@+id/createNew"
+        android:name="com.example.design.retrofitExamples.fragments.CreateNew"
+        android:label="CreateNew"
+        tools:layout="@layout/create_new_bottom_fragment">
+        <action
+            android:id="@+id/action_createNew_to_heroes"
+            app:destination="@id/heroes" />
+    </dialog>
 </navigation>

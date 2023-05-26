@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
-    android:background="#DCB2A7"
-    tools:context=".Fragment.AddStudents">
+    android:background="@color/light_blue"
+    tools:context=".students.fragments.AddStudents">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/studentToolbar"
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/allerta"
                 android:text="Student"
-                android:textColor="@color/light_black"
+                android:textColor="@color/light_gray"
                 android:textSize="25sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -69,7 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="add new student"
-        android:background="#CE5737"
+        android:textColor="@color/light_gray"
+        android:background="@color/light_black"
         android:fontFamily="@font/allerta"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"

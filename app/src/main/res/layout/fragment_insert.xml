@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
     android:background="@drawable/frame_layout_movie"
-    tools:context=".Fragment.InsertFragment">
+    tools:context=".Movie.Data.fragments.InsertFragment">
 
     <ImageButton
         android:id="@+id/imageButton2"

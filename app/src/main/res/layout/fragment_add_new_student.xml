@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CFB5AF"
-    tools:context=".Fragment.AddNewStudent">
+    android:background="@color/light_blue"
+    tools:context=".students.fragments.AddNewStudent">
 
     <TextView
         android:id="@+id/textView2"
@@ -15,6 +15,7 @@
         android:fontFamily="@font/allerta"
         android:text="ADD NEW STUDENT"
         android:textSize="35sp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,6 +29,7 @@
         android:fontFamily="@font/allerta"
         android:text="Student credentials"
         android:textSize="13sp"
+        android:textColor="@color/light_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -101,6 +103,7 @@
         android:fontFamily="@font/allerta"
         android:text="Student Conditional"
         android:textSize="13sp"
+        android:textColor="@color/light_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
@@ -113,6 +116,7 @@
         android:fontFamily="@font/allerta"
         android:text="Are you working?"
         android:textSize="22sp"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textConditionalAddStudent" />
 
@@ -146,6 +150,7 @@
             android:padding="4dp"
             android:layout_marginTop="8dp"
             android:text="Yes"
+            android:textColor="@color/light_gray"
             android:textSize="18sp" />
 
         <RadioButton
@@ -157,6 +162,7 @@
             android:layout_marginTop="8dp"
             android:padding="4dp"
             android:text="No"
+            android:textColor="@color/light_gray"
             android:textSize="18sp" />
 
     </RadioGroup>
@@ -169,6 +175,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/allerta"
         android:text="Courses"
+        android:textColor="@color/light_gray"
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
@@ -181,6 +188,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:textSize="22sp"
+        android:textColor="@color/white"
         android:text="Choose a course"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCourses" />

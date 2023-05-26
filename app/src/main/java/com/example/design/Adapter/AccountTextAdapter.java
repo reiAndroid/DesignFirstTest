@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.design.R;
-import com.example.design.model.Text;
+import com.example.design.UserDatabase.Model.Text;
 
 import java.util.ArrayList;
 

@@ -19,7 +19,7 @@ import com.example.design.DataExample.Fav;
 import com.example.design.DataExample.FavDao;
 import com.example.design.DataExample.FavViewModel;
 import com.example.design.DatabaseHolder.FavListAdapter;
-import com.example.design.FavNext;
+import com.example.design.UserDatabase.UI.FavNext;
 import com.example.design.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

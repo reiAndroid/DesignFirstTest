@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="6dp"
+    android:id="@+id/change_post_layout"
+    android:background="@color/light_blue">
+
+    <EditText
+        android:id="@+id/edit_text_change_user_id"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custiom_edit_text_layout"
+        android:drawableEnd="@drawable/custom_name_icon"
+        android:hint="Enter Id"
+        android:inputType="number"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/edit_text_change_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custiom_edit_text_layout"
+        android:drawableEnd="@drawable/custom_name_icon"
+        android:hint="Enter Title"
+        android:inputType="textAutoComplete"
+        android:layout_marginTop="15dp"
+        android:padding="10dp" />
+
+
+    <EditText
+        android:id="@+id/edit_text_change_body"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custiom_edit_text_layout"
+        android:drawableEnd="@drawable/custom_name_icon"
+        android:hint="Enter Body"
+        android:inputType="textAutoComplete"
+        android:layout_marginTop="15dp"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/change_post_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="P o s t"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/change_edit_attributes_button_layout" />
+
+</LinearLayout>

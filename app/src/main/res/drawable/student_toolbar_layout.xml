@@ -13,7 +13,7 @@
             <corners android:radius="18dp"/>
 
             <solid
-                android:color="#CE5737"/>
+                android:color="@color/light_black"/>
         </shape>
     </item>
 

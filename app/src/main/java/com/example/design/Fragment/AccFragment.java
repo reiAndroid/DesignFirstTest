@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import com.example.design.Adapter.AccountTextAdapter;
 import com.example.design.R;
-import com.example.design.model.Text;
+import com.example.design.UserDatabase.Model.Text;
 
 import java.util.ArrayList;
 import java.util.Objects;

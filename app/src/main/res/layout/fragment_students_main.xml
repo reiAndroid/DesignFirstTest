@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.StudentsMain"
+    tools:context=".students.fragments.StudentsMain"
     android:background="@drawable/img_1">
 
     <TextView

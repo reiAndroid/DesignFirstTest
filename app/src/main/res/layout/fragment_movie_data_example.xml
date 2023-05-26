@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
-    tools:context=".Fragment.MovieDataExample">
+    tools:context=".Movie.Data.fragments.MovieDataExample">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/searchMovieToolbar"

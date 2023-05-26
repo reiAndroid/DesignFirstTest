@@ -16,7 +16,14 @@
         tools:targetApi="31">
         <activity
             android:name=".Activities.FirstScreen"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".Activities.Student"
             android:exported="false" />
@@ -24,7 +31,7 @@
             android:name=".Activities.MovieExample"
             android:exported="false" />
         <activity
-            android:name=".FavNext"
+            android:name=".UserDatabase.UI.FavNext"
             android:exported="false" />
         <activity
             android:name=".Activities.ExampleOfDatabase"
@@ -59,13 +66,8 @@
         </activity>
         <activity
             android:name=".Activities.MainActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <meta-data
                 android:name="android.app.lib_name"

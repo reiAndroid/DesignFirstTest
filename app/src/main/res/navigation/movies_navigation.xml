@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/movieDataExample"
-        android:name="com.example.design.Fragment.MovieDataExample"
+        android:name="com.example.design.Movie.Data.fragments.MovieDataExample"
         android:label="fragment_movie_data_example"
         tools:layout="@layout/fragment_movie_data_example" >
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/insertFragment"
-        android:name="com.example.design.Fragment.InsertFragment"
+        android:name="com.example.design.Movie.Data.fragments.InsertFragment"
         android:label="fragment_insert"
         tools:layout="@layout/fragment_insert" >
         <action
@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/updateFragment"
-        android:name="com.example.design.Fragment.UpdateFragment"
+        android:name="com.example.design.Movie.Data.fragments.UpdateFragment"
         android:label="fragment_update"
         tools:layout="@layout/fragment_update" >
         <action
