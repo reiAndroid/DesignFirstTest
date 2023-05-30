@@ -16,6 +16,11 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     public void setPosts(List<Posts> setListPosts) {
         this.posts = setListPosts;
+        notifyDataSetChanged();
+    }
+
+    public Posts getPostAt(int position) {
+        return posts.get(position);
     }
 
     @NonNull
@@ -33,11 +38,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         holder.setAlbumId(post.getid());
         holder.setTitleText(post.getTitle());
         holder.setBodyText(post.getBody());
-
-       /* holder.user_id.setText(String.valueOf(posts.get(position).getuserId()));
-        * holder.album_id.setText(String.valueOf(posts.get(position).getid()));
-        holder.title_text.setText(posts.get(position).getTitle());
-        holder.body_text.setText(posts.get(position).getBody());*/
 
         holder.itemView.setOnClickListener(v -> {
             //TODO: Go to another fragment

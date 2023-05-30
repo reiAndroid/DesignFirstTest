@@ -1,8 +1,11 @@
 package com.example.design.retrofitExamples.fragments;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,15 +15,17 @@ import android.widget.Button;
 import android.widget.Toast;
 import com.example.design.R;
 import com.example.design.retrofitExamples.Adapter.PostsAdapter;
-import com.example.design.retrofitExamples.Adapter.CommentsAdapter;
-import com.example.design.retrofitExamples.Data.RetrofitViewModel;
+import com.example.design.retrofitExamples.Data.RetrofitRepositoryTest;
+import com.example.design.retrofitExamples.Data.RetrofitViewModelTest;
+
 
 public class RetrofitMainFragment extends Fragment {
 
-    private CommentsAdapter commentsAdapter;
     private PostsAdapter postsAdapter;
     private RecyclerView recyclerView;
-    private RetrofitViewModel retrofitViewModel;
+    private RetrofitRepositoryTest repositoryTestFragment;
+    private RetrofitViewModelTest retrofitViewModelTest;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,6 +36,8 @@ public class RetrofitMainFragment extends Fragment {
         //Initialization
         recyclerView = view.findViewById(R.id.recyclerView);
         Button create_new_post_button = view.findViewById(R.id.create_new_post_button);
+        Button delete_all_posts = view.findViewById(R.id.delete_all_posts);
+        repositoryTestFragment = new RetrofitRepositoryTest(getContext());
 
         //onClick to Create New Fragment
         create_new_post_button.setOnClickListener(v ->{
@@ -38,12 +45,28 @@ public class RetrofitMainFragment extends Fragment {
             createNew.show(getChildFragmentManager(), CreateNew.TAG);
         });
 
+        //onClick to Delete All
+        delete_all_posts.setOnClickListener(v -> {
+
+            AlertDialog.Builder alert = new AlertDialog.Builder(requireContext());
+            alert.setTitle("DELETE ALL");
+            alert.setMessage("Are you sure you want to delete all posts?");
+
+            alert.setNegativeButton("No", (dialog, which) ->
+                    Toast.makeText(getContext(), "Nothing to delete!", Toast.LENGTH_SHORT).show());
+
+            alert.setPositiveButton("Yes", (dialog, which) -> retrofitViewModelTest.deleteAllPostsFromDb());
+
+            alert.show();
+        });
+
         postData();
-        getPost();
+        setPosts();
+        deleteOnePost();
+
 
         return view;
     }
-
 
     //Initializing the RecyclerView and set to it the adapter (Posts)
     private void postData() {
@@ -54,65 +77,39 @@ public class RetrofitMainFragment extends Fragment {
 
     }
 
-
-    //Use ViewModel to display GET request (Posts)
-    private void getPost() {
-
-        setRetrofitViewModel();
-        retrofitViewModel.getLiveDataPosts().observe(getViewLifecycleOwner(), posts -> {
+    private void setPosts() {
+        retrofitViewModelTest = new ViewModelProvider(this).get(RetrofitViewModelTest.class);
+        retrofitViewModelTest.getListLiveDataViewModel().observe(getViewLifecycleOwner(), posts -> {
 
             if (posts != null) {
                 postsAdapter.setPosts(posts);
-                postsAdapter.notifyDataSetChanged();
             } else {
                 errorMessage();
             }
-
         });
-        retrofitViewModel.makeApiCall();
+        repositoryTestFragment.getPostsData();
     }
 
 
-
-    //Initializing the RecyclerView and set to it the adapter (Comments)
-    private void commentsData() {
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
-        commentsAdapter = new CommentsAdapter();
-        recyclerView.setAdapter(commentsAdapter);
-
-    }
-
-
-
-    //Use ViewModel to display GET request (Comments)
-    private void getComments() {
-        setRetrofitViewModel();
-        retrofitViewModel.getMutableLiveDataComments().observe(getViewLifecycleOwner(), comments -> {
-
-            if (comments != null) {
-                commentsAdapter.setCommentsList(comments);
-                commentsAdapter.notifyDataSetChanged();
-            } else {
-                errorMessage();
+    private void deleteOnePost() {
+        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
             }
 
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                int position = viewHolder.getAdapterPosition();
+
+                retrofitViewModelTest.deleteOnePostFromDb(postsAdapter.getPostAt(position));
+                postsAdapter.notifyItemRemoved(position);
+                Toast.makeText(getContext(), "Post deleted!", Toast.LENGTH_SHORT).show();
+            }
         });
-        retrofitViewModel.getCommentsByPost();
-    }
 
-
-
-    //Use ViewModel to create a Post using POST request
-    private void createPosts() {
-        //TODO: CREATE POST
-    }
-
-
-
-    //Generate ViewModel
-    private void setRetrofitViewModel() {
-        retrofitViewModel = new ViewModelProvider(this).get(RetrofitViewModel.class);
+        helper.attachToRecyclerView(recyclerView);
     }
 
 

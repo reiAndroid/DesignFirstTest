@@ -1,14 +1,15 @@
 package com.example.design.retrofitExamples.ui.posts;
 
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "posts")
 public class Posts {
-
-    int userId;
-    int id;
-    String title;
-    String body;
+    @PrimaryKey
+    public int id;
+    public int userId;
+    public String title;
+    public String body;
 
 
     //Constructor
@@ -17,6 +18,11 @@ public class Posts {
         this.id = id;
         this.title = title;
         this.body = body;
+    }
+
+    //Empty Constructor
+    public Posts() {
+
     }
 
 

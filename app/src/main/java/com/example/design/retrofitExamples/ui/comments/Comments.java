@@ -1,11 +1,14 @@
 package com.example.design.retrofitExamples.ui.comments;
 
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "comments")
 public class Comments {
-    int postId;
+
+    @PrimaryKey
     int id;
+    int postId;
     String name;
     String email;
     String body;
@@ -18,6 +21,11 @@ public class Comments {
         this.name = name;
         this.email = email;
         this.body = body;
+    }
+
+    //Empty Constructor
+    public Comments() {
+
     }
 
     //Setters

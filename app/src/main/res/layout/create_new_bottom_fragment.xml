@@ -13,7 +13,7 @@
         android:layout_height="50dp"
         android:background="@drawable/custiom_edit_text_layout"
         android:drawableEnd="@drawable/custom_name_icon"
-        android:hint="Enter Id"
+        android:hint="Enter User Id"
         android:inputType="number"
         android:padding="10dp" />
 

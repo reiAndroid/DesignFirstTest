@@ -4,30 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="2dp"
     android:background="#D8CFCF"
+    android:padding="2dp"
     tools:context=".retrofitExamples.fragments.RetrofitMainFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/buttons_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/comments_layout"/>
+        tools:listitem="@layout/albums_layout" />
 
-    <Button
-        android:id="@+id/create_new_post_button"
+    <LinearLayout
+        android:id="@+id/buttons_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/convergence"
-        android:text="CREATE"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:background="#3A3838"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:padding="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/create_new_post_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#045B95"
+            android:fontFamily="@font/convergence"
+            android:text="CREATE"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/delete_all_posts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:background="#3B4043"
+            android:text="DELETE"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            style="?android:attr/buttonBarButtonStyle" />
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

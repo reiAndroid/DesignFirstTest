@@ -28,11 +28,13 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         holder.posts_id.setText(String.valueOf(commentsList.get(position).getPostId()));
         holder.comments_id.setText(String.valueOf(commentsList.get(position).getId()));
         holder.name_text.setText(commentsList.get(position).getName());
         holder.email_text.setText(commentsList.get(position).getEmail());
         holder.body_comments_text.setText(commentsList.get(position).getBody());
+
     }
 
     @Override
